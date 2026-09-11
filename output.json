@@ -1,5 +1,76 @@
 [
     {
+        "timestamp": "2026-09-11T15:07:15.496232+00:00",
+        "movie_name": "Baby Do Die Do",
+        "results": [
+            {
+                "domain": "indianexpress.com",
+                "cleaned_title": "",
+                "raw_title": ""
+            },
+            {
+                "domain": "ndtv.com",
+                "cleaned_title": "Huma Qureshi Is Consistent, The Film Is Not",
+                "raw_title": "Baby Do Die Do Review: Huma Qureshi Is Consistent, The Film Is Not"
+            },
+            {
+                "domain": "outlookindia.com",
+                "cleaned_title": "Huma Qureshi Elevates A Stylish Thriller That Runs Out Of Surprises",
+                "raw_title": "Baby Do Die Do Review | Huma Qureshi Elevates A Stylish Thriller That Runs Out Of Surprises | Outlook India"
+            },
+            {
+                "domain": "koimoi.com",
+                "cleaned_title": "Huma Qureshi's Mute Act Screams Dekh Bhai Dekh At The Highest Decibel - Her Slow Badlapur World Wins With A Mic Drop Climax!",
+                "raw_title": "Baby Do Die Do Movie Review: Huma Qureshi's Mute Act Screams Dekh Bhai Dekh At The Highest Decibel - Her Slow Badlapur World Wins With A Mic Drop Climax!"
+            },
+            {
+                "domain": "filmfare.com",
+                "cleaned_title": "- Killer Creativity Mixed With Dark Humour",
+                "raw_title": "Baby Do Die Do Review - Killer Creativity Mixed With Dark Humour | Filmfare.com"
+            },
+            {
+                "domain": "indiatvnews.com",
+                "cleaned_title": "",
+                "raw_title": "not set"
+            },
+            {
+                "domain": "news18.com",
+                "cleaned_title": "Huma Qureshi Shines In A Cheeky Thriller That Loses Steam Later",
+                "raw_title": "Baby Do Die Do Review: Huma Qureshi Shines In A Cheeky Thriller That Loses Steam Later | Reviews News - News18"
+            },
+            {
+                "domain": "bollywoodhungama.com",
+                "cleaned_title": "BABY DO DIE DO works due to a terrific performance",
+                "raw_title": "Baby Do Die Do Movie Review: BABY DO DIE DO works due to a terrific performance"
+            },
+            {
+                "domain": "indiatoday.in",
+                "cleaned_title": "Huma Qureshi powers this pulpy revenge thriller with style",
+                "raw_title": "Baby Do Die Do review: Huma Qureshi powers this pulpy revenge thriller with style - India Today"
+            },
+            {
+                "domain": "hindustantimes.com",
+                "cleaned_title": "",
+                "raw_title": ""
+            },
+            {
+                "domain": "thehindu.com",
+                "cleaned_title": "In the mood for Mumbai",
+                "raw_title": "‘Baby Do Die Do’ movie review: In the mood for Mumbai - The Hindu"
+            },
+            {
+                "domain": "amp.scroll.in",
+                "cleaned_title": "has trouble keeping up with its killer title and killer heroine",
+                "raw_title": "Review: Baby Do Die Do has trouble keeping up with its killer title and killer heroine"
+            },
+            {
+                "domain": "hollywoodreporterindia.com",
+                "cleaned_title": "Huma Qureshi Shines in a Stylish Mumbai Assassin Thriller",
+                "raw_title": "Baby Do Die Do Movie Review: Huma Qureshi Shines in a Stylish Mumbai Assassin Thriller"
+            }
+        ]
+    },
+    {
         "timestamp": "2026-09-11T14:53:10.471801+00:00",
         "movie_name": "Baby Do Die Do",
         "results": [
