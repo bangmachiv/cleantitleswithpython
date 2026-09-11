@@ -5,9 +5,6 @@ import json
 import urllib.parse
 from datetime import datetime
 
-# -----------------------------------------------------------------------------
-# DOWNLOADER DEPENDENCIES
-# -----------------------------------------------------------------------------
 from curl_cffi import requests as cffi_requests
 import requests as standard_requests
 from playwright.sync_api import sync_playwright
@@ -16,7 +13,7 @@ from playwright_stealth import Stealth
 # ============================================================
 # CONFIGURATION
 # ============================================================
-SCRAPE_DO_TOKEN = os.environ.get("SCRAPE_DO_TOKEN") # Optional
+SCRAPE_DO_TOKEN = os.environ.get("SCRAPE_DO_TOKEN")
 
 INPUT_FILE = "input.txt"
 OUTPUT_FILE = "output.json"
@@ -33,12 +30,13 @@ REVIEW_IDENTIFIERS = [
     "hindimoviereview", "hindifilmreview", "moviereview", "filmreview", "review"
 ]
 
+# Added "Rediff.com movies" to the list
 PUBLISHERS = [
     "Bollywood Hungama", "BollySpice", "Cinema Express", "Film Companion", 
     "Glamsham", "High On Films", "Koimoi", "Movie Talkies", "PeepingMoon", 
     "DNA", "Firstpost", "Gadgets 360", "IANS Live", "Moneycontrol", 
-    "Rediff.com", "Scroll.in", "South Asian Herald", "The Federal", 
-    "The News Minute", "The Quint", "Business Standard", "Mint", 
+    "Rediff.com", "Rediff.com movies", "Scroll.in", "South Asian Herald", 
+    "The Federal", "The News Minute", "The Quint", "Business Standard", "Mint", 
     "Filmfare", "India Today", "Outlook", "Hindustan Times", "The Hindu", 
     "The Indian Express", "The Sunday Guardian", "The Telegraph", 
     "The Times of India", "Deccan Chronicle", "Deccan Herald", 
@@ -58,20 +56,12 @@ def is_valid_html(html_content: str) -> bool:
         return True
 
     lower_html = html_content.lower()
-    bad_titles = [
-        "<title>just a moment...</title>",
-        "<title>attention required!</title>",
-        "<title>security challenge</title>"
-    ]
+    bad_titles = ["<title>just a moment...</title>", "<title>attention required!</title>", "<title>security challenge</title>"]
     for title in bad_titles:
         if title in lower_html:
             return False
 
-    bad_signatures = [
-        "enable javascript and cookies to continue",
-        "please verify you are a human",
-        "challenge-platform"
-    ]
+    bad_signatures = ["enable javascript and cookies to continue", "please verify you are a human", "challenge-platform"]
     for sig in bad_signatures:
         if sig in lower_html:
             return False
@@ -79,7 +69,7 @@ def is_valid_html(html_content: str) -> bool:
     return True
 
 # ============================================================
-# FALLBACK DOWNLOADERS (TIER 2 & 3)
+# FALLBACK DOWNLOADERS
 # ============================================================
 def fallback_download(url: str):
     try:
@@ -106,7 +96,7 @@ def scrape_do_fallback(url: str):
     return None, None
 
 # ============================================================
-# TITLE CLEANING (UNSPACED ALPHANUM MAPPER)
+# TITLE CLEANING ALGORITHM
 # ============================================================
 def normalize_with_positions(text):
     normalized = ""
@@ -118,15 +108,18 @@ def normalize_with_positions(text):
     return normalized, positions
 
 def get_movie_variants(movie_name):
-    movie_name = movie_name.strip()
-    if not movie_name:
-        return []
-    variants = [movie_name]
-    match = re.match(r'^(.+?)\s+[:\-]\s+(.+)$', movie_name)
-    if match:
-        main_title = match.group(1).strip()
-        if main_title and main_title.lower() not in [v.lower() for v in variants]:
-            variants.append(main_title)
+    variants = []
+    # Split by comma to support passing "Ohh My Dog, Oh My Dog"
+    names = [n.strip() for n in movie_name.split(",") if n.strip()]
+    
+    for name in names:
+        if name.lower() not in [v.lower() for v in variants]:
+            variants.append(name)
+        match = re.match(r'^(.+?)\s+[:\-]\s+(.+)$', name)
+        if match:
+            main_title = match.group(1).strip()
+            if main_title and main_title.lower() not in [v.lower() for v in variants]:
+                variants.append(main_title)
     return variants
 
 def build_candidates(movie_name):
@@ -136,16 +129,20 @@ def build_candidates(movie_name):
         movie_norm, _ = normalize_with_positions(variant)
         for identifier in REVIEW_IDENTIFIERS:
             ident_norm, _ = normalize_with_positions(identifier)
+            # Pattern 1: Movie + Review Identifier
             candidates.append({"normalized": movie_norm + ident_norm})
+            # Pattern 2: Review Identifier + Movie (Catches newindianexpress format)
+            candidates.append({"normalized": ident_norm + movie_norm})
+            
     candidates.sort(key=lambda x: len(x["normalized"]), reverse=True)
     return candidates
 
 def clean_title(raw_title, candidates, normalized_publishers):
     if not raw_title or not raw_title.strip():
         return ""
-
+        
     title_norm, positions = normalize_with_positions(raw_title)
-
+    
     # STEP 1 & 2: Rightmost Movie + Review Match
     extracted_text = ""
     for candidate in candidates:
@@ -156,17 +153,18 @@ def clean_title(raw_title, candidates, normalized_publishers):
                 return ""
             original_start = positions[match_end]
             extracted_text = raw_title[original_start:]
-            extracted_text = re.sub(r'^[\s:]+', '', extracted_text).strip()
+            # Strip leading spaces, colons, or pipes that might be left over
+            extracted_text = re.sub(r'^[\s:|]+', '', extracted_text).strip()
             break
-
+            
     if not extracted_text:
         return "" 
-
+        
     # STEP 3: Rightmost Pipe (|) Removal
     r_pipe_idx = extracted_text.rfind('|')
     if r_pipe_idx != -1:
         extracted_text = extracted_text[:r_pipe_idx].strip()
-
+        
     # STEP 4: Publisher Removal 
     ext_norm, ext_positions = normalize_with_positions(extracted_text)
     for pub_norm, _ in normalized_publishers:
@@ -179,7 +177,7 @@ def clean_title(raw_title, candidates, normalized_publishers):
                 extracted_text = extracted_text[:original_cut_idx]
             break
 
-    # STEP 5: Trailing Cleanup
+    # STEP 5: Trailing Cleanup (Recursive spaces, dashes, and pipes)
     extracted_text = re.sub(r'[\s\-–—|]+$', '', extracted_text)
     return extracted_text
 
@@ -191,7 +189,6 @@ def main():
         print(f"[ERROR] {INPUT_FILE} not found in root directory.")
         return
 
-    # Parse input file
     with open(INPUT_FILE, "r", encoding="utf-8") as f:
         lines = [line.strip() for line in f if line.strip()]
 
@@ -199,12 +196,11 @@ def main():
         print("[ERROR] input.txt is empty.")
         return
 
-    movie_name = lines[0] # Line 1 is the movie name
-    urls = lines[1:]      # The rest are URLs
+    movie_name = lines[0]
+    urls = lines[1:]
 
-    print(f"[INFO] Initializing. Movie: '{movie_name}' | URLs to process: {len(urls)}")
+    print(f"[INFO] Initializing. Movie: '{movie_name}' | URLs: {len(urls)}")
 
-    # Pre-process Matchers
     candidates = build_candidates(movie_name)
     normalized_publishers = []
     for pub in PUBLISHERS:
@@ -214,7 +210,6 @@ def main():
 
     results = []
 
-    # Init Playwright Stealth (Tier 1)
     with Stealth().use_sync(sync_playwright()) as p:
         browser = p.chromium.launch(
             headless=True,
@@ -231,7 +226,7 @@ def main():
         for index, url in enumerate(urls, start=1):
             domain = urllib.parse.urlparse(url).netloc
             domain = domain.replace("www.", "") if domain.startswith("www.") else domain
-
+            
             print(f"\n--- [{index}/{len(urls)}] {domain} ---")
             print(f"URL: {url}")
 
@@ -239,9 +234,6 @@ def main():
             raw_title = ""
             used_tier = None
 
-            # ---------------------------------------------------------
-            # FETCHING HTML
-            # ---------------------------------------------------------
             try:
                 page = context.new_page()
                 page.goto(url, wait_until="domcontentloaded", timeout=30000)
@@ -261,19 +253,13 @@ def main():
             if not html_content:
                 html_content, used_tier = scrape_do_fallback(url)
 
-            # ---------------------------------------------------------
-            # EXTRACTION & CLEANING
-            # ---------------------------------------------------------
             if html_content:
                 title_match = re.search(r'<title[^>]*>(.*?)</title>', html_content, re.IGNORECASE | re.DOTALL)
                 if title_match:
                     raw_title = title_match.group(1).strip()
-
+                    
             cleaned_title = clean_title(raw_title, candidates, normalized_publishers) if raw_title else ""
 
-            # ---------------------------------------------------------
-            # LOGGING RESULTS
-            # ---------------------------------------------------------
             print(f"Downloaded: {'Y (' + used_tier + ')' if html_content else 'N'}")
             print(f"Title found: {raw_title if raw_title else 'FAILED'}")
             print(f"Cleaned: {cleaned_title if cleaned_title else 'FAILED'}")
@@ -286,9 +272,6 @@ def main():
 
         browser.close()
 
-    # ============================================================
-    # SAVE TO JSON (APPEND TO TOP)
-    # ============================================================
     new_run_block = {
         "timestamp": datetime.now().astimezone().isoformat(),
         "movie_name": movie_name,
@@ -301,11 +284,10 @@ def main():
             with open(OUTPUT_FILE, "r", encoding="utf-8") as f:
                 existing_data = json.load(f)
                 if not isinstance(existing_data, list):
-                    existing_data = [] # Reset if file is corrupted or not a list
+                    existing_data = []
         except json.JSONDecodeError:
             pass
 
-    # Append to the very top (index 0)
     existing_data.insert(0, new_run_block)
 
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
