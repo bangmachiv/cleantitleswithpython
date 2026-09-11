@@ -1,0 +1,45 @@
+name: Scrape and Clean Titles
+
+on:
+  workflow_dispatch: # Allows manual trigger from the GitHub Actions tab
+
+# Required so the Action can commit and push back to your repo
+permissions:
+  contents: write
+
+jobs:
+  scrape-and-clean:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Python Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install playwright playwright-stealth curl_cffi requests
+          playwright install chromium
+
+      - name: Run Cleaner Script
+        env:
+          # PYTHONUNBUFFERED forces Python to stream logs instantly to GitHub console
+          PYTHONUNBUFFERED: 1
+          # Optional: define this in GitHub Secrets if you use Scrape.do for Tier 3
+          SCRAPE_DO_TOKEN: ${{ secrets.SCRAPE_DO_TOKEN }}
+        run: python cleaner.py
+
+      - name: Commit and Push output.json
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action Bot"
+          
+          git add output.json
+          
+          # Only commit and push if output.json was actually modified
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update output.json with latest scraping run" && git push)
