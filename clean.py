@@ -16,8 +16,7 @@ from playwright_stealth import Stealth
 # ============================================================
 # CONFIGURATION
 # ============================================================
-MOVIE_NAME = os.environ.get("MOVIE_NAME", "Bhai Tera Star Hai")
-SCRAPE_DO_TOKEN = os.environ.get("SCRAPE_DO_TOKEN") # Optional: Tier 3 API Token
+SCRAPE_DO_TOKEN = os.environ.get("SCRAPE_DO_TOKEN") # Optional
 
 INPUT_FILE = "input.txt"
 OUTPUT_FILE = "output.json"
@@ -53,7 +52,6 @@ PUBLISHERS = [
 # HELPER: DOWNLOAD VALIDATION
 # ============================================================
 def is_valid_html(html_content: str) -> bool:
-    """Checks if the HTML is an actual article or a bot challenge/block page."""
     if not html_content or len(html_content) < MIN_VALID_HTML_BYTES:
         return False
     if len(html_content) > 80000:
@@ -84,44 +82,31 @@ def is_valid_html(html_content: str) -> bool:
 # FALLBACK DOWNLOADERS (TIER 2 & 3)
 # ============================================================
 def fallback_download(url: str):
-    print("    └─► [TIER 2] Attempting TLS-Spoofed HTTP request...")
     try:
         session = cffi_requests.Session(impersonate="chrome120")
         session.headers.update(HTTP_HEADERS)
         response = session.get(url, timeout=20)
-
         if response.status_code == 200 and is_valid_html(response.text):
-            print(f"    └─► [TIER 2 SUCCESS] Received {len(response.text)} chars.")
-            return response.text
-        else:
-            print(f"    └─► [TIER 2 FAILED] Status: {response.status_code}")
-            return None
-    except Exception as e:
-        print(f"    └─► [TIER 2 ERROR] {e}")
-        return None
+            return response.text, "Tier 2 (curl_cffi)"
+    except Exception:
+        pass
+    return None, None
 
-def scrape_do_fallback(target_url: str):
-    print("    └─► [TIER 3] Routing request through Scrape.do API...")
+def scrape_do_fallback(url: str):
     if not SCRAPE_DO_TOKEN:
-        print("    └─► [TIER 3 ERROR] SCRAPE_DO_TOKEN is not set!")
-        return None
-
-    encoded_url = urllib.parse.quote(target_url)
+        return None, None
+    encoded_url = urllib.parse.quote(url)
     api_url = f"http://api.scrape.do/?token={SCRAPE_DO_TOKEN}&url={encoded_url}&render=true&super=true&geoCode=in"
     try:
         response = standard_requests.get(api_url, timeout=60)
         if response.status_code == 200 and is_valid_html(response.text):
-            print(f"    └─► [TIER 3 SUCCESS] Received {len(response.text)} chars.")
-            return response.text
-        else:
-            print(f"    └─► [TIER 3 FAILED] Status: {response.status_code}")
-            return None
-    except Exception as e:
-        print(f"    └─► [TIER 3 ERROR] {e}")
-        return None
+            return response.text, "Tier 3 (Scrape.do)"
+    except Exception:
+        pass
+    return None, None
 
 # ============================================================
-# HELPER: TITLE CLEANING (UNSPACED ALPHANUM MAPPER)
+# TITLE CLEANING (UNSPACED ALPHANUM MAPPER)
 # ============================================================
 def normalize_with_positions(text):
     normalized = ""
@@ -184,7 +169,7 @@ def clean_title(raw_title, candidates, normalized_publishers):
         
     # STEP 4: Publisher Removal 
     ext_norm, ext_positions = normalize_with_positions(extracted_text)
-    for pub_norm, original_pub_length in normalized_publishers:
+    for pub_norm, _ in normalized_publishers:
         if ext_norm.endswith(pub_norm):
             match_start_norm_idx = len(ext_norm) - len(pub_norm)
             if match_start_norm_idx == 0:
@@ -206,13 +191,21 @@ def main():
         print(f"[ERROR] {INPUT_FILE} not found in root directory.")
         return
 
+    # Parse input file
     with open(INPUT_FILE, "r", encoding="utf-8") as f:
-        urls = [line.strip() for line in f if line.strip()]
+        lines = [line.strip() for line in f if line.strip()]
 
-    print(f"[INFO] Found {len(urls)} URLs to process for movie: '{MOVIE_NAME}'.")
+    if not lines:
+        print("[ERROR] input.txt is empty.")
+        return
+
+    movie_name = lines[0] # Line 1 is the movie name
+    urls = lines[1:]      # The rest are URLs
+
+    print(f"[INFO] Initializing. Movie: '{movie_name}' | URLs to process: {len(urls)}")
 
     # Pre-process Matchers
-    candidates = build_candidates(MOVIE_NAME)
+    candidates = build_candidates(movie_name)
     normalized_publishers = []
     for pub in PUBLISHERS:
         norm_pub, _ = normalize_with_positions(pub)
@@ -239,8 +232,8 @@ def main():
             domain = urllib.parse.urlparse(url).netloc
             domain = domain.replace("www.", "") if domain.startswith("www.") else domain
             
-            print(f"\n--- [{index}/{len(urls)}] Processing: {domain} ---")
-            print(f"  URL: {url}")
+            print(f"\n--- [{index}/{len(urls)}] {domain} ---")
+            print(f"URL: {url}")
 
             html_content = None
             raw_title = ""
@@ -252,25 +245,21 @@ def main():
             try:
                 page = context.new_page()
                 page.goto(url, wait_until="domcontentloaded", timeout=30000)
-                page.wait_for_timeout(5000) # Give scripts time to update <title>
+                page.wait_for_timeout(5000) 
                 temp_content = page.content()
                 page.close()
 
                 if is_valid_html(temp_content):
                     html_content = temp_content
                     used_tier = "Tier 1 (Playwright Stealth)"
-                else:
-                    print("    └─► [WARNING] Tier 1 rejected (Bot challenge).")
-            except Exception as e:
-                print(f"    └─► [WARNING] Tier 1 failed: {e}")
+            except Exception:
+                pass
 
             if not html_content:
-                html_content = fallback_download(url)
-                if html_content: used_tier = "Tier 2 (curl_cffi)"
+                html_content, used_tier = fallback_download(url)
 
             if not html_content:
-                html_content = scrape_do_fallback(url)
-                if html_content: used_tier = "Tier 3 (Scrape.do)"
+                html_content, used_tier = scrape_do_fallback(url)
 
             # ---------------------------------------------------------
             # EXTRACTION & CLEANING
@@ -282,13 +271,12 @@ def main():
                     
             cleaned_title = clean_title(raw_title, candidates, normalized_publishers) if raw_title else ""
 
-            # Log outcome
-            if html_content and raw_title:
-                print(f"  [SUCCESS] Downloaded via {used_tier}")
-                print(f"    Raw Title: {raw_title}")
-                print(f"    Cleaned  : {cleaned_title if cleaned_title else '(Empty / No Match)'}")
-            else:
-                print("  [FAILED] Could not download valid HTML or extract <title>.")
+            # ---------------------------------------------------------
+            # LOGGING RESULTS
+            # ---------------------------------------------------------
+            print(f"Downloaded: {'Y (' + used_tier + ')' if html_content else 'N'}")
+            print(f"Title found: {raw_title if raw_title else 'FAILED'}")
+            print(f"Cleaned: {cleaned_title if cleaned_title else 'FAILED'}")
 
             results.append({
                 "domain": domain,
@@ -298,12 +286,32 @@ def main():
 
         browser.close()
 
-    # Save Results
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-        json.dump(results, f, ensure_ascii=False, indent=4)
+    # ============================================================
+    # SAVE TO JSON (APPEND TO TOP)
+    # ============================================================
+    new_run_block = {
+        "timestamp": datetime.now().astimezone().isoformat(),
+        "movie_name": movie_name,
+        "results": results
+    }
 
-    print(f"\n[INFO] Done! Results saved to {OUTPUT_FILE}.")
+    existing_data = []
+    if os.path.exists(OUTPUT_FILE):
+        try:
+            with open(OUTPUT_FILE, "r", encoding="utf-8") as f:
+                existing_data = json.load(f)
+                if not isinstance(existing_data, list):
+                    existing_data = [] # Reset if file is corrupted or not a list
+        except json.JSONDecodeError:
+            pass
+
+    # Append to the very top (index 0)
+    existing_data.insert(0, new_run_block)
+
+    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+        json.dump(existing_data, f, ensure_ascii=False, indent=4)
+
+    print(f"\n[INFO] Run complete. JSON updated with latest block at the top.")
 
 if __name__ == "__main__":
     main()
-
