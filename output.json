@@ -1,1 +1,108 @@
- 
+[
+    {
+        "timestamp": "2026-09-11T14:32:16.161839+00:00",
+        "movie_name": "Ohh My Dog",
+        "results": [
+            {
+                "domain": "ndtv.com",
+                "cleaned_title": "Pankaj Tripathi Film Is Fun, Gripping And Charming  - 3 Stars",
+                "raw_title": "Ohh My Dog Review: Pankaj Tripathi Film Is Fun, Gripping And Charming  - 3 Stars"
+            },
+            {
+                "domain": "indianexpress.com",
+                "cleaned_title": "",
+                "raw_title": ""
+            },
+            {
+                "domain": "koimoi.com",
+                "cleaned_title": "Pankaj Tripathi Brings A Dog-Man Love Story &amp; Oh My God It Is So Good!",
+                "raw_title": "Ohh My Dog Movie Review: Pankaj Tripathi Brings A Dog-Man Love Story &amp; Oh My God It Is So Good! - Koimoi %"
+            },
+            {
+                "domain": "vocal.media",
+                "cleaned_title": "",
+                "raw_title": "Oh My Dog Movie Review: An Emotional Spy Thriller With Dogs, Twists and a Heartwarming Story\n | Geeks"
+            },
+            {
+                "domain": "pinkvilla.com",
+                "cleaned_title": "Oscar's unwavering loyalty sets humans straight in Pankaj Tripathi's family entertainer",
+                "raw_title": "Ohh My Dog Review: Oscar's unwavering loyalty sets humans straight in Pankaj Tripathi's family entertainer | PINKVILLA: Entertainment"
+            },
+            {
+                "domain": "bollywoodhungama.com",
+                "cleaned_title": "OHH MY DOG is an endearing and unusual entertainer",
+                "raw_title": "Ohh My Dog Movie Review: OHH MY DOG is an endearing and unusual entertainer"
+            },
+            {
+                "domain": "indiatoday.in",
+                "cleaned_title": "Amit Rai's paw-some hero steals the show in this emotional ride",
+                "raw_title": "Ohh My Dog review: Amit Rai's paw-some hero steals the show in this emotional ride - India Today"
+            },
+            {
+                "domain": "timesofindia.indiatimes.com",
+                "cleaned_title": "",
+                "raw_title": "Oh My Dog Movie Review: A decent dog tale that prevents itself from becoming a great one"
+            },
+            {
+                "domain": "hindustantimes.com",
+                "cleaned_title": "",
+                "raw_title": ""
+            },
+            {
+                "domain": "rediff.com",
+                "cleaned_title": "Go Watch! - Rediff.com movies",
+                "raw_title": "Ohh My Dog Review: Go Watch! - Rediff.com movies"
+            },
+            {
+                "domain": "newindianexpress.com",
+                "cleaned_title": "",
+                "raw_title": "Movie Review| Oh My Dog, a sweet film that lacks finesse"
+            },
+            {
+                "domain": "lehren.com",
+                "cleaned_title": "",
+                "raw_title": ""
+            },
+            {
+                "domain": "thequint.com",
+                "cleaned_title": "",
+                "raw_title": "Arun Vijay starrer Oh My Dog Movie Review: A Likeable Dog Drama For The Kids"
+            },
+            {
+                "domain": "firstpost.com",
+                "cleaned_title": "",
+                "raw_title": "Oh My Dog movie review: Arun Vijay's sweet, sappy film bogged down by commercial platitudes and predictable writing"
+            },
+            {
+                "domain": "deccanherald.com",
+                "cleaned_title": "An underdog story worth chasing",
+                "raw_title": "'Ohh My Dog' movie review: An underdog story worth chasing"
+            },
+            {
+                "domain": "scroll.in",
+                "cleaned_title": "A smart kid and a fabulous canine deliver a parable about goodness",
+                "raw_title": "Ohh My Dog film review: A smart kid and a fabulous canine deliver a parable about goodness"
+            },
+            {
+                "domain": "thehindu.com",
+                "cleaned_title": "Amit Rai’s poignant plea for coexistence",
+                "raw_title": "‘Ohh My Dog’ movie review: Amit Rai’s poignant plea for coexistence - The Hindu"
+            },
+            {
+                "domain": "lensmenreviews.com",
+                "cleaned_title": "",
+                "raw_title": "Oh My Dog Review | A Generic Kid's Film With No Major Aspirations"
+            },
+            {
+                "domain": "hollywoodreporterindia.com",
+                "cleaned_title": "Amit Rai’s Overlong Yet Warm Canine Adventure Across Assam and Bihar",
+                "raw_title": "‘Ohh My Dog’ Movie Review: Amit Rai’s Overlong Yet Warm Canine Adventure Across Assam and Bihar"
+            },
+            {
+                "domain": "thefederal.com",
+                "cleaned_title": "A heartfelt ode to empathy, adventure and man’s best friend",
+                "raw_title": "Ohh My Dog review: A heartfelt ode to empathy, adventure and man’s best friend"
+            }
+        ]
+    }
+]
