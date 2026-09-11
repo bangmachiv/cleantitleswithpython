@@ -3,8 +3,12 @@ import os
 import re
 import json
 import urllib.parse
+import html  # NEW: For decoding HTML entities
 from datetime import datetime
 
+# -----------------------------------------------------------------------------
+# DOWNLOADER DEPENDENCIES
+# -----------------------------------------------------------------------------
 from curl_cffi import requests as cffi_requests
 import requests as standard_requests
 from playwright.sync_api import sync_playwright
@@ -30,7 +34,6 @@ REVIEW_IDENTIFIERS = [
     "hindimoviereview", "hindifilmreview", "moviereview", "filmreview", "review"
 ]
 
-# Added "Rediff.com movies" to the list
 PUBLISHERS = [
     "Bollywood Hungama", "BollySpice", "Cinema Express", "Film Companion", 
     "Glamsham", "High On Films", "Koimoi", "Movie Talkies", "PeepingMoon", 
@@ -109,7 +112,7 @@ def normalize_with_positions(text):
 
 def get_movie_variants(movie_name):
     variants = []
-    # Split by comma to support passing "Ohh My Dog, Oh My Dog"
+    # Split by comma to support aliases (e.g. "Ohh My Dog, Oh My Dog")
     names = [n.strip() for n in movie_name.split(",") if n.strip()]
     
     for name in names:
@@ -129,9 +132,9 @@ def build_candidates(movie_name):
         movie_norm, _ = normalize_with_positions(variant)
         for identifier in REVIEW_IDENTIFIERS:
             ident_norm, _ = normalize_with_positions(identifier)
-            # Pattern 1: Movie + Review Identifier
+            # Pattern 1: Movie + Review (Standard)
             candidates.append({"normalized": movie_norm + ident_norm})
-            # Pattern 2: Review Identifier + Movie (Catches newindianexpress format)
+            # Pattern 2: Review + Movie (Reversed)
             candidates.append({"normalized": ident_norm + movie_norm})
             
     candidates.sort(key=lambda x: len(x["normalized"]), reverse=True)
@@ -143,17 +146,20 @@ def clean_title(raw_title, candidates, normalized_publishers):
         
     title_norm, positions = normalize_with_positions(raw_title)
     
-    # STEP 1 & 2: Rightmost Movie + Review Match
+    # STEP 1 & 2: Rightmost Movie/Review Match
     extracted_text = ""
     for candidate in candidates:
         match_idx = title_norm.rfind(candidate["normalized"])
         if match_idx != -1:
-            match_end = match_idx + len(candidate["normalized"])
-            if match_end >= len(positions):
-                return ""
-            original_start = positions[match_end]
+            # Physically locate the LAST character of the match in the original string
+            last_char_match_idx = match_idx + len(candidate["normalized"]) - 1
+            original_last_char_pos = positions[last_char_match_idx]
+            
+            # Slice the string starting exactly one character after the match ends
+            original_start = original_last_char_pos + 1
             extracted_text = raw_title[original_start:]
-            # Strip leading spaces, colons, or pipes that might be left over
+            
+            # Strip leading spaces, colons, or pipes (but retains everything else)
             extracted_text = re.sub(r'^[\s:|]+', '', extracted_text).strip()
             break
             
@@ -177,7 +183,7 @@ def clean_title(raw_title, candidates, normalized_publishers):
                 extracted_text = extracted_text[:original_cut_idx]
             break
 
-    # STEP 5: Trailing Cleanup (Recursive spaces, dashes, and pipes)
+    # STEP 5: Trailing Cleanup (Recursive trailing spaces, dashes, and pipes)
     extracted_text = re.sub(r'[\s\-–—|]+$', '', extracted_text)
     return extracted_text
 
@@ -257,6 +263,8 @@ def main():
                 title_match = re.search(r'<title[^>]*>(.*?)</title>', html_content, re.IGNORECASE | re.DOTALL)
                 if title_match:
                     raw_title = title_match.group(1).strip()
+                    # UNESCAPE HTML ENTITIES INTO PURE TEXT
+                    raw_title = html.unescape(raw_title)
                     
             cleaned_title = clean_title(raw_title, candidates, normalized_publishers) if raw_title else ""
 
@@ -288,6 +296,7 @@ def main():
         except json.JSONDecodeError:
             pass
 
+    # Prepend new run to index 0
     existing_data.insert(0, new_run_block)
 
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
