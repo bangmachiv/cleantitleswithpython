@@ -1,5 +1,116 @@
 [
     {
+        "timestamp": "2026-09-11T15:15:26.148352+00:00",
+        "movie_name": "Awarapan 2",
+        "results": [
+            {
+                "domain": "indianexpress.com",
+                "cleaned_title": "",
+                "raw_title": ""
+            },
+            {
+                "domain": "koimoi.com",
+                "cleaned_title": "\"Akkha Bollywood Ek Taraf, Emraan Hashmi Ek Taraf,\" Yes, Raghav Juyal, With Due Credit, I Re-Iterate This!",
+                "raw_title": "Awarapan 2 Movie Review: \"Akkha Bollywood Ek Taraf, Emraan Hashmi Ek Taraf,\" Yes, Raghav Juyal, With Due Credit, I Re-Iterate This!"
+            },
+            {
+                "domain": "bollywoodhungama.com",
+                "cleaned_title": "AWARAPAN 2 is a mass-appealing action entertainer",
+                "raw_title": "Awarapan 2 Movie Review: AWARAPAN 2 is a mass-appealing action entertainer"
+            },
+            {
+                "domain": "abplive.com",
+                "cleaned_title": "Emraan Hashmi Disha Patani Film Review in Hindi",
+                "raw_title": "Awarapan 2 Review: 'आवारापन 2' फिल्म नहीं, इमरान हाशमी फ्लेवर है, दिशा पाटनी संग जमी केमिस्ट्री | Awarapan 2 Review Emraan Hashmi Disha Patani Film Review in Hindi"
+            },
+            {
+                "domain": "hindustantimes.com",
+                "cleaned_title": "",
+                "raw_title": ""
+            },
+            {
+                "domain": "news.abplive.com",
+                "cleaned_title": "The ‘Serial Kisser’ Is Back, And Bollywood Better Make Way",
+                "raw_title": "‘Awarapan 2’ Review | The ‘Serial Kisser’ Is Back, And Bollywood Better Make Way"
+            },
+            {
+                "domain": "indiatoday.in",
+                "cleaned_title": "Emraan Hashmi is still the king of beautiful heartbreak",
+                "raw_title": "Awarapan 2 review: Emraan Hashmi is still the king of beautiful heartbreak - India Today"
+            },
+            {
+                "domain": "timesnownews.com",
+                "cleaned_title": "Emraan Hashmi Holds The Sequel As Grieving Lover With A Purpose",
+                "raw_title": "Awarapan 2 Movie Review: Emraan Hashmi Holds The Sequel As Grieving Lover With A Purpose | Times Now"
+            },
+            {
+                "domain": "cinemaexpress.com",
+                "cleaned_title": "Emraan Hashmi still has it in slick, staid sequel",
+                "raw_title": "Awarapan 2 Movie Review: Emraan Hashmi still has it in slick, staid sequel"
+            },
+            {
+                "domain": "timesofindia.indiatimes.com",
+                "cleaned_title": "Emraan Hashmi is the soul of this massy sequel",
+                "raw_title": "Awarapan 2 Movie Review: Emraan Hashmi is the soul of this massy sequel"
+            },
+            {
+                "domain": "southasianherald.com",
+                "cleaned_title": "",
+                "raw_title": "Film Review: Does Awarapan 2 Confirm That the Dark Hero is the New Box-Office Dependable? - South Asian Herald"
+            },
+            {
+                "domain": "news18.com",
+                "cleaned_title": "Emraan Hashmi’s Shivam Has Nothing Left To Lose, And That Makes Him More Dangerous",
+                "raw_title": "Awarapan 2 Review: Emraan Hashmi’s Shivam Has Nothing Left To Lose, And That Makes Him More Dangerous | Bollywood News - News18"
+            },
+            {
+                "domain": "filmfare.com",
+                "cleaned_title": "- Visually rich but creatively bankrupt action romp",
+                "raw_title": "Awarapan 2 Review - Visually rich but creatively bankrupt action romp | Filmfare.com"
+            },
+            {
+                "domain": "ndtv.com",
+                "cleaned_title": "And Rating: An Out-An-Out Emraan Hashmi Show Driven By Nostalgia, But That's All - 2.5 Stars",
+                "raw_title": "Awarapan 2 Review And Rating: An Out-An-Out Emraan Hashmi Show Driven By Nostalgia, But That's All - 2.5 Stars"
+            },
+            {
+                "domain": "rediff.com",
+                "cleaned_title": "Emraan Hashmi Goes Massy",
+                "raw_title": "Awarapan 2 Review: Emraan Hashmi Goes Massy - Rediff.com movies"
+            },
+            {
+                "domain": "livemint.com",
+                "cleaned_title": "Emraan Hashmi film only serves to bring back a mood",
+                "raw_title": "‘Awarapan 2’ review: Emraan Hashmi film only serves to bring back a mood | Mint"
+            },
+            {
+                "domain": "filminformation.com",
+                "cleaned_title": "14 August, 2026 - Film Information",
+                "raw_title": "'AWARAPAN 2' REVIEW | 14 August, 2026 - Film Information"
+            },
+            {
+                "domain": "hollywoodreporterindia.com",
+                "cleaned_title": "Emraan Hashmi Brings The Nostalgia In This Moody Sequel",
+                "raw_title": "‘Awarapan 2’ Movie Review: Emraan Hashmi Brings The Nostalgia In This Moody Sequel"
+            },
+            {
+                "domain": "sundayguardianlive.com",
+                "cleaned_title": "Emraan Hashmi Returns As Shivam Pandit With Rage, Redemption And The Soul Of Old-School Romance",
+                "raw_title": "Awarapan 2 Movie Review: Emraan Hashmi Returns As Shivam Pandit With Rage, Redemption And The Soul Of Old-School Romance"
+            },
+            {
+                "domain": "thehindu.com",
+                "cleaned_title": "Emraan Hashmi’s faded sequel doesn’t rise from the riches of its past",
+                "raw_title": "‘Awarapan 2’ movie review: Emraan Hashmi’s faded sequel doesn’t rise from the riches of its past - The Hindu"
+            },
+            {
+                "domain": "telegraphindia.com",
+                "cleaned_title": "- How long will Bollywood ride the nostalgia train - Telegraph India",
+                "raw_title": "Awarapan 2 review | ‘Awarapan 2’ review - How long will Bollywood ride the nostalgia train - Telegraph India"
+            }
+        ]
+    },
+    {
         "timestamp": "2026-09-11T15:07:15.496232+00:00",
         "movie_name": "Baby Do Die Do",
         "results": [
