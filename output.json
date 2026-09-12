@@ -1,5 +1,71 @@
 [
     {
+        "timestamp": "2026-09-12T07:33:14.287626+00:00",
+        "movie_name": "Param Sundari",
+        "results": [
+            {
+                "domain": "indianexpress.com",
+                "cleaned_title": "Sidharth Malhotra-Janhvi Kapoor film struggles to find both rom and com",
+                "raw_title": "Param Sundari movie review: Sidharth Malhotra-Janhvi Kapoor film struggles to find both rom and com | Movie-review News - The Indian Express"
+            },
+            {
+                "domain": "news18.com",
+                "cleaned_title": "Sidharth Malhotra, Janhvi Kapoor’s Chemistry Crackles In Heartfelt Rom-Com",
+                "raw_title": "Param Sundari Review: Sidharth Malhotra, Janhvi Kapoor’s Chemistry Crackles In Heartfelt Rom-Com | Bollywood News - News18"
+            },
+            {
+                "domain": "bollywoodhungama.com",
+                "cleaned_title": "PARAM SUNDARI is a pleasant rom com",
+                "raw_title": "Param Sundari Movie Review: PARAM SUNDARI is a pleasant rom com"
+            },
+            {
+                "domain": "koimoi.com",
+                "cleaned_title": "Sidharth Malhotra & Janhvi Kapoor’s Film Is A Lighthearted Love-Fest Ideal For Pyar-Ishq-Mohabbat Fans!",
+                "raw_title": "Param Sundari Movie Review: Sidharth Malhotra & Janhvi Kapoor’s Film Is A Lighthearted Love-Fest Ideal For Pyar-Ishq-Mohabbat Fans!"
+            },
+            {
+                "domain": "timesofindia.indiatimes.com",
+                "cleaned_title": "Sidharth Malhotra and Janhvi Kapoor’s charming chemistry anchors this rom-com",
+                "raw_title": "Param Sundari Movie Review: Sidharth Malhotra and Janhvi Kapoor’s charming chemistry anchors this rom-com"
+            },
+            {
+                "domain": "ndtv.com",
+                "cleaned_title": "This Sidharth Malhotra-Janhvi Kapoor Rom-Com Is An Unabashed Love Letter To Shah Rukh Khan's Films - 3 Stars",
+                "raw_title": "Param Sundari Review: This Sidharth Malhotra-Janhvi Kapoor Rom-Com Is An Unabashed Love Letter To Shah Rukh Khan's Films - 3 Stars"
+            },
+            {
+                "domain": "indiatoday.in",
+                "cleaned_title": "Sidharth Malhotra, Janhvi Kapoor can sell Kerala trips, not love",
+                "raw_title": "Param Sundari movie review: Sidharth Malhotra, Janhvi Kapoor can sell Kerala trips, not love - India Today"
+            },
+            {
+                "domain": "firstpost.com",
+                "cleaned_title": "Sidharth Malhotra-Janhvi Kapoor’s ‘wicked pairing’ was the major highlight",
+                "raw_title": "'Param Sundari' Movie Review: Sidharth Malhotra-Janhvi Kapoor’s ‘wicked pairing’ was the major highlight"
+            },
+            {
+                "domain": "deccanherald.com",
+                "cleaned_title": "news",
+                "raw_title": "Param Sundari Review: Sidharth Malhotra & Janhvi Kapoor Fail to Impress in Predictable Rom-Com | Param Sundari Movie Review news"
+            },
+            {
+                "domain": "cinemaexpress.com",
+                "cleaned_title": "Sidharth Malhotra and Janhvi Kapoor’s rom-com goes south from the get go",
+                "raw_title": "Param Sundari Movie Review: Sidharth Malhotra and Janhvi Kapoor’s rom-com goes south from the get go"
+            },
+            {
+                "domain": "hindustantimes.com",
+                "cleaned_title": "",
+                "raw_title": ""
+            },
+            {
+                "domain": "hollywoodreporterindia.com",
+                "cleaned_title": "Culture-Clash Romcom Falls Flat - THR India",
+                "raw_title": "‘Param Sundari’ Movie Review: Culture-Clash Romcom Falls Flat - THR India"
+            }
+        ]
+    },
+    {
         "timestamp": "2026-09-12T03:04:10.489319+00:00",
         "movie_name": "Param Sundari",
         "results": [
