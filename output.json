@@ -1,5 +1,116 @@
 [
     {
+        "timestamp": "2026-09-12T13:29:45.312197+00:00",
+        "movie_name": "Bharat Bhhagya Viddhaata",
+        "results": [
+            {
+                "domain": "indianexpress.com",
+                "cleaned_title": "Resurgent Kangana Ranaut leads this gripping film",
+                "raw_title": "Bharat Bhhagya Viddhaata movie review: Resurgent Kangana Ranaut leads this gripping film | Movie-review News - The Indian Express",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "baradwajrangan.wordpress.com",
+                "cleaned_title": "Is a moving, well-crafted tribute to the heroines of 26/11",
+                "raw_title": "Manoj Tapadia’s ‘Bharat Bhhagya Viddhaata’ is a moving, well-crafted tribute to the heroines of 26/11 | Baradwaj Rangan",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "news.abplive.com",
+                "cleaned_title": "Kangana Ranaut’s Film Is The 26/11 Tribute We Owed Our Nurses",
+                "raw_title": "Bharat Bhhagya Viddhaata Review | Kangana Ranaut’s Film Is The 26/11 Tribute We Owed Our Nurses",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "news18.com",
+                "cleaned_title": "Kangana Ranaut Leads A Powerful Ode To Nurses Who Saved Lives During 26/11",
+                "raw_title": "Bharat Bhhagya Viddhaata Review: Kangana Ranaut Leads A Powerful Ode To Nurses Who Saved Lives During 26/11 | Reviews News - News18",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "aajtak.in",
+                "cleaned_title": "कंगना रनौत की दमदार एक्टिंग, 26/11 हमलों में नर्सों की बहादुरी को करेंगे सलाम, दिल जीत लेगी फिल्म",
+                "raw_title": "Bharat Bhhagya Viddhaata Review: कंगना रनौत की दमदार एक्टिंग, 26/11 हमलों में नर्सों की बहादुरी को करेंगे सलाम, दिल जीत लेगी फिल्म  - Kangana Ranaut Bharat Bhhagya Viddhaata Movie Review Hindi tmovg - AajTak",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "timesofindia.indiatimes.com",
+                "cleaned_title": "A tense thriller rooted in humanity and hope",
+                "raw_title": "Bharat Bhhagya Viddhaata Movie Review: A tense thriller rooted in humanity and hope",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "koimoi.com",
+                "cleaned_title": "Kangana Ranaut Leads A Stirring Tribute To The Unsung Heroes Of 26/11",
+                "raw_title": "Bharat Bhhagya Viddhaata Movie Review: Kangana Ranaut Leads A Stirring Tribute To The Unsung Heroes Of 26/11",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "filmfare.com",
+                "cleaned_title": "A Tribute to Everyday Heroes",
+                "raw_title": "Bharat Bhhagya Viddhaata Review: A Tribute to Everyday Heroes | Filmfare.com",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "hindustantimes.com",
+                "cleaned_title": "A nail-biting tribute to courage under fire by Kangana Ranaut and her co-actors",
+                "raw_title": "Bharat Bhhagya Viddhaata review: A nail-biting tribute to courage under fire by Kangana Ranaut and her co-actors | Bollywood",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "filmibeat.com",
+                "cleaned_title": "Kangana Ranaut Shines In Sincere Retelling Of Cama Hospital's Heroism | Bharat Bhhagya Viddhaata (Bharat Bhagya Vidhata) Film Review Out | Bharat Bhhagya Viddhaata Rating Out Of 5",
+                "raw_title": "Bharat Bhhagya Viddhaata Movie Review And Rating (Non-Spoiler): Kangana Ranaut Shines In Sincere Retelling Of Cama Hospital's Heroism | Bharat Bhhagya Viddhaata (Bharat Bhagya Vidhata) Film Review Out | Bharat Bhhagya Viddhaata Rating Out Of 5 | Is Bharat Bhhagya Viddhaata Worth The Wait? Check Filmibeat Review Here - Filmibeat",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "indiatoday.in",
+                "cleaned_title": "Kangana Ranaut is flame in film that could have been a fire",
+                "raw_title": "Bharat Bhhagya Viddhaata review: Kangana Ranaut is flame in film that could have been a fire - India Today",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "lehren.com",
+                "cleaned_title": "",
+                "raw_title": "",
+                "is_downloaded": false,
+                "is_cleaned": false
+            },
+            {
+                "domain": "bollywoodhungama.com",
+                "cleaned_title": "BHARAT BHHAGYA VIDDHAATA boasts a compelling story and sincere performances but is let down by weak storytelling",
+                "raw_title": "Bharat Bhhagya Viddhaata Movie Review: BHARAT BHHAGYA VIDDHAATA boasts a compelling story and sincere performances but is let down by weak storytelling",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "scroll.in",
+                "cleaned_title": "A gripping account of uncommon courage against terror",
+                "raw_title": "Bharat Bhhagya Viddhaata review: A gripping account of uncommon courage against terror",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "varietyindia.com",
+                "cleaned_title": "A Moving Medical Drama",
+                "raw_title": "Bharat Bhhagya Viddhaata Review: A Moving Medical Drama",
+                "is_downloaded": true,
+                "is_cleaned": true
+            }
+        ]
+    },
+    {
         "timestamp": "2026-09-12T13:11:50.053126+00:00",
         "movie_name": "Bharat Bhhagya Viddhaata",
         "results": [

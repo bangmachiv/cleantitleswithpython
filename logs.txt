@@ -1,4 +1,4 @@
---- RUN STARTED: 2026-09-12T13:09:08.753820+00:00 ---
+--- RUN STARTED: 2026-09-12T13:27:05.925469+00:00 ---
 [FINDER] Initializing. Movie: 'Bharat Bhhagya Viddhaata' | URLs: 15
 
 --- [1/15] indianexpress.com ---
@@ -86,7 +86,7 @@ Cleaned: Resurgent Kangana Ranaut leads this gripping film
 
 Domain: baradwajrangan.wordpress.com
 Raw: Manoj Tapadia’s ‘Bharat Bhhagya Viddhaata’ is a moving, well-crafted tribute to the heroines of 26/11 | Baradwaj Rangan
-Cleaned: is a moving, well-crafted tribute to the heroines of 26/11
+Cleaned: Is a moving, well-crafted tribute to the heroines of 26/11
 
 Domain: news.abplive.com
 Raw: Bharat Bhhagya Viddhaata Review | Kangana Ranaut’s Film Is The 26/11 Tribute We Owed Our Nurses
@@ -98,7 +98,7 @@ Cleaned: Kangana Ranaut Leads A Powerful Ode To Nurses Who Saved Lives During 26
 
 Domain: aajtak.in
 Raw: Bharat Bhhagya Viddhaata Review: कंगना रनौत की दमदार एक्टिंग, 26/11 हमलों में नर्सों की बहादुरी को करेंगे सलाम, दिल जीत लेगी फिल्म  - Kangana Ranaut Bharat Bhhagya Viddhaata Movie Review Hindi tmovg - AajTak
-Cleaned: कंगना रनौत की दमदार एक्टिंग, 26/11 हमलों में नर्सों की बहादुरी को करेंगे सलाम, दिल जीत लेगी फिल्म  - Kangana Ranaut
+Cleaned: कंगना रनौत की दमदार एक्टिंग, 26/11 हमलों में नर्सों की बहादुरी को करेंगे सलाम, दिल जीत लेगी फिल्म
 
 Domain: timesofindia.indiatimes.com
 Raw: Bharat Bhhagya Viddhaata Movie Review: A tense thriller rooted in humanity and hope
@@ -118,7 +118,7 @@ Cleaned: A nail-biting tribute to courage under fire by Kangana Ranaut and her c
 
 Domain: filmibeat.com
 Raw: Bharat Bhhagya Viddhaata Movie Review And Rating (Non-Spoiler): Kangana Ranaut Shines In Sincere Retelling Of Cama Hospital's Heroism | Bharat Bhhagya Viddhaata (Bharat Bhagya Vidhata) Film Review Out | Bharat Bhhagya Viddhaata Rating Out Of 5 | Is Bharat Bhhagya Viddhaata Worth The Wait? Check Filmibeat Review Here - Filmibeat
-Cleaned: Non-Spoiler): Kangana Ranaut Shines In Sincere Retelling Of Cama Hospital's Heroism
+Cleaned: Kangana Ranaut Shines In Sincere Retelling Of Cama Hospital's Heroism | Bharat Bhhagya Viddhaata (Bharat Bhagya Vidhata) Film Review Out | Bharat Bhhagya Viddhaata Rating Out Of 5
 
 Domain: indiatoday.in
 Raw: Bharat Bhhagya Viddhaata review: Kangana Ranaut is flame in film that could have been a fire - India Today
@@ -130,7 +130,7 @@ Cleaned: FAILED
 
 Domain: bollywoodhungama.com
 Raw: Bharat Bhhagya Viddhaata Movie Review: BHARAT BHHAGYA VIDDHAATA boasts a compelling story and sincere performances but is let down by weak storytelling
-Cleaned: boasts a compelling story and sincere performances but is let down by weak storytelling
+Cleaned: BHARAT BHHAGYA VIDDHAATA boasts a compelling story and sincere performances but is let down by weak storytelling
 
 Domain: scroll.in
 Raw: Bharat Bhhagya Viddhaata review: A gripping account of uncommon courage against terror
