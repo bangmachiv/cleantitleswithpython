@@ -2,35 +2,34 @@
 import os
 import re
 import json
+import urllib.parse
+import html
 from datetime import datetime
+
+# -----------------------------------------------------------------------------
+# DOWNLOADER DEPENDENCIES
+# -----------------------------------------------------------------------------
+from curl_cffi import requests as cffi_requests
+import requests as standard_requests
+from playwright.sync_api import sync_playwright
+from playwright_stealth import Stealth
 
 # ============================================================
 # CONFIGURATION
 # ============================================================
+SCRAPE_DO_TOKEN = os.environ.get("SCRAPE_DO_TOKEN")
+
+INPUT_FILE = "input.txt"
 TEMP_RUNTIME_FILE = "temp_runtime.json"
-OUTPUT_FILE = "output.json"
 LOG_FILE = "logs.txt"
+MIN_VALID_HTML_BYTES = 2000
 
-REVIEW_IDENTIFIERS = [
-    "hindimoviereview", "hindifilmreview", "moviereview", "filmreview", "review",
-    "review and rating", "movie review and rating"
-]
-
-PUBLISHERS = [
-    "Bollywood Hungama", "BollySpice", "Cinema Express", "Film Companion", 
-    "Glamsham", "High On Films", "Koimoi", "Movie Talkies", "PeepingMoon", 
-    "DNA", "Firstpost", "Gadgets 360", "IANS Live", "Moneycontrol", 
-    "Rediff.com", "Rediff.com movies", "Scroll.in", "South Asian Herald", 
-    "The Federal", "The News Minute", "The Quint", "Business Standard", "Mint", 
-    "Filmfare", "India Today", "Outlook", "Hindustan Times", "The Hindu", 
-    "The Indian Express", "The Sunday Guardian", "The Telegraph", "Telegraph India",
-    "The Times of India", "Deccan Chronicle", "Deccan Herald", 
-    "Free Press Journal", "Mid-Day", "The Siasat Daily", "The Tribune", 
-    "Amar Ujala", "Dainik Bhaskar", "Dainik Jagran", "Hindustan", 
-    "Navbharat Times", "Lokmat", "NDTV", "News18", "WION", "Aaj Tak", "ABP",
-    "The Lensmen Reviews", "Suyash Pachauri Writes", "Film Information", "The Open Press",
-    "news", "reviews", "THR India"
-]
+HTTP_HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.9",
+    "Referer": "https://www.google.com/",
+}
 
 # ============================================================
 # HELPER: LOGGING
@@ -41,206 +40,199 @@ def log_msg(msg):
         f.write(msg + "\n")
 
 # ============================================================
-# TITLE CLEANING ALGORITHM
+# HELPER: DOWNLOAD VALIDATION
 # ============================================================
-def normalize_with_positions(text):
-    normalized = ""
-    positions = []
-    for original_index, char in enumerate(text):
-        if char.isalnum():
-            normalized += char.lower()
-            positions.append(original_index)
-    return normalized, positions
+def is_valid_html(html_content: str) -> bool:
+    if not html_content or len(html_content) < MIN_VALID_HTML_BYTES:
+        return False
+    if len(html_content) > 80000:
+        return True
 
-def get_movie_variants(movie_name):
-    variants = []
-    names = [n.strip() for n in movie_name.split(",") if n.strip()]
+    lower_html = html_content.lower()
+    bad_titles = ["<title>just a moment...</title>", "<title>attention required!</title>", "<title>security challenge</title>"]
+    for title in bad_titles:
+        if title in lower_html:
+            return False
 
-    for name in names:
-        if name.lower() not in [v.lower() for v in variants]:
-            variants.append(name)
-        match = re.match(r'^(.+?)\s+[:\-]\s+(.+)$', name)
-        if match:
-            main_title = match.group(1).strip()
-            if main_title and main_title.lower() not in [v.lower() for v in variants]:
-                variants.append(main_title)
-    return variants
+    bad_signatures = ["enable javascript and cookies to continue", "please verify you are a human", "challenge-platform"]
+    for sig in bad_signatures:
+        if sig in lower_html:
+            return False
 
-def build_candidates(movie_name):
-    variants = get_movie_variants(movie_name)
-    candidates = []
-    for variant in variants:
-        movie_norm, _ = normalize_with_positions(variant)
-        for identifier in REVIEW_IDENTIFIERS:
-            ident_norm, _ = normalize_with_positions(identifier)
-            candidates.append({"normalized": movie_norm + ident_norm})
-            candidates.append({"normalized": ident_norm + movie_norm})
-
-        if movie_norm:
-            candidates.append({"normalized": movie_norm})
-
-    unique_candidates = []
-    seen = set()
-    for c in sorted(candidates, key=lambda x: len(x["normalized"]), reverse=True):
-        if c["normalized"] not in seen:
-            seen.add(c["normalized"])
-            unique_candidates.append(c)
-
-    return unique_candidates
-
-def clean_title(raw_title, candidates, normalized_publishers):
-    if not raw_title or not raw_title.strip():
-        return ""
-
-    title_norm, positions = normalize_with_positions(raw_title)
-
-    extracted_text = ""
-
-    for candidate in candidates:
-        cand_norm = candidate["normalized"]
-        matches = []
-        start = 0
-        
-        while True:
-            idx = title_norm.find(cand_norm, start)
-            if idx == -1:
-                break
-            matches.append(idx)
-            start = idx + len(cand_norm)
-            
-        if not matches:
-            continue
-            
-        pieces = []
-        for i in range(len(matches)):
-            match_end_norm = matches[i] + len(cand_norm)
-            if match_end_norm >= len(positions):
-                pieces.append("")
-                continue
-                
-            raw_start = positions[match_end_norm]
-            
-            if i + 1 < len(matches):
-                next_match_start_norm = matches[i+1]
-                raw_end = positions[next_match_start_norm]
-                pieces.append(raw_title[raw_start:raw_end])
-            else:
-                pieces.append(raw_title[raw_start:])
-                
-        best_piece = ""
-        for piece in pieces:
-            if len(piece.strip()) >= len(best_piece.strip()):
-                best_piece = piece
-                
-        extracted_text = best_piece
-        break
-
-    if not extracted_text:
-        return "" 
-
-    r_pipe_idx = extracted_text.rfind('|')
-    if r_pipe_idx != -1:
-        extracted_text = extracted_text[:r_pipe_idx].strip()
-
-    ext_norm, ext_positions = normalize_with_positions(extracted_text)
-    for pub_norm, _ in normalized_publishers:
-        if ext_norm.endswith(pub_norm):
-            match_start_norm_idx = len(ext_norm) - len(pub_norm)
-            if match_start_norm_idx == 0:
-                extracted_text = ""
-            else:
-                original_cut_idx = ext_positions[match_start_norm_idx]
-                extracted_text = extracted_text[:original_cut_idx]
-            break
-
-    extracted_text = re.sub(r'[\s\-–—|]+$', '', extracted_text)
-    return extracted_text
+    return True
 
 # ============================================================
-# MAIN CLEANER EXECUTION
+# FALLBACK DOWNLOADERS (TIERS 2 to 6)
+# ============================================================
+def fallback_download(url: str):
+    try:
+        session = cffi_requests.Session(impersonate="chrome120")
+        session.headers.update(HTTP_HEADERS)
+        response = session.get(url, timeout=20)
+        if response.status_code == 200 and is_valid_html(response.text):
+            return response.text, "Tier 2 (curl_cffi)"
+    except Exception:
+        pass
+    return None, None
+
+def scrape_do_fallback(url: str):
+    if not SCRAPE_DO_TOKEN:
+        return None, None
+    encoded_url = urllib.parse.quote(url)
+    api_url = f"http://api.scrape.do/?token={SCRAPE_DO_TOKEN}&url={encoded_url}&render=true&super=true&geoCode=in"
+    try:
+        response = standard_requests.get(api_url, timeout=60)
+        if response.status_code == 200 and is_valid_html(response.text):
+            return response.text, "Tier 3 (Scrape.do)"
+    except Exception:
+        pass
+    return None, None
+
+def amp_cache_fallback(url: str):
+    try:
+        parsed = urllib.parse.urlparse(url)
+        amp_host = parsed.netloc.replace('www.', '').replace('.', '-')
+        s_part = "s/" if parsed.scheme == "https" else ""
+        url_without_scheme = url.split("://")[-1]
+        amp_url = f"https://{amp_host}.cdn.ampproject.org/c/{s_part}{url_without_scheme}"
+
+        session = cffi_requests.Session(impersonate="chrome120")
+        session.headers.update(HTTP_HEADERS)
+        response = session.get(amp_url, timeout=20)
+
+        if response.status_code == 200 and is_valid_html(response.text):
+            return response.text, "Tier 4 (Google AMP Cache)"
+    except Exception:
+        pass
+    return None, None
+
+def google_translate_fallback(url: str):
+    try:
+        encoded_url = urllib.parse.quote(url)
+        translate_url = f"https://translate.google.com/translate?sl=en&tl=en&u={encoded_url}"
+
+        session = cffi_requests.Session(impersonate="chrome120")
+        session.headers.update(HTTP_HEADERS)
+        response = session.get(translate_url, timeout=20)
+
+        if response.status_code == 200 and is_valid_html(response.text):
+            return response.text, "Tier 5 (Google Translate)"
+    except Exception:
+        pass
+    return None, None
+
+def archive_fallback(url: str):
+    try:
+        archive_url = f"https://web.archive.org/web/2/{url}"
+
+        session = cffi_requests.Session(impersonate="chrome120")
+        session.headers.update(HTTP_HEADERS)
+        response = session.get(archive_url, timeout=30)
+
+        if response.status_code == 200 and is_valid_html(response.text):
+            return response.text, "Tier 6 (Archive.org)"
+    except Exception:
+        pass
+    return None, None
+
+# ============================================================
+# MAIN FINDER EXECUTION
 # ============================================================
 def main():
-    if not os.path.exists(TEMP_RUNTIME_FILE):
-        log_msg(f"[ERROR] {TEMP_RUNTIME_FILE} not found. Run finder.py first.")
+    with open(LOG_FILE, "w", encoding="utf-8") as f:
+        f.write(f"--- RUN STARTED: {datetime.now().astimezone().isoformat()} ---\n")
+
+    if not os.path.exists(INPUT_FILE):
+        log_msg(f"[ERROR] {INPUT_FILE} not found in root directory.")
         return
 
-    with open(TEMP_RUNTIME_FILE, "r", encoding="utf-8") as f:
-        runtime_data = json.load(f)
+    with open(INPUT_FILE, "r", encoding="utf-8") as f:
+        lines = [line.strip() for line in f if line.strip()]
 
-    timestamp = runtime_data.get("timestamp")
-    movie_name = runtime_data.get("movie_name")
-    entries = runtime_data.get("entries", [])
+    if not lines:
+        log_msg("[ERROR] input.txt is empty.")
+        return
 
-    log_msg(f"\n[CLEANER] Processing {len(entries)} entries for movie: '{movie_name}'")
+    movie_name = lines[0]
+    urls = lines[1:]
 
-    candidates = build_candidates(movie_name)
-    normalized_publishers = []
-    for pub in PUBLISHERS:
-        norm_pub, _ = normalize_with_positions(pub)
-        normalized_publishers.append((norm_pub, len(norm_pub)))
-    normalized_publishers.sort(key=lambda x: x[1], reverse=True)
+    log_msg(f"[FINDER] Initializing. Movie: '{movie_name}' | URLs: {len(urls)}")
 
-    results = []
-    downloaded_count = 0
-    cleaned_count = 0
+    runtime_entries = []
 
-    for domain, raw_title in entries:
-        cleaned_title = clean_title(raw_title, candidates, normalized_publishers) if raw_title else ""
+    with Stealth().use_sync(sync_playwright()) as p:
+        browser = p.chromium.launch(
+            channel="chrome", 
+            headless=True,
+            args=["--disable-blink-features=AutomationControlled", "--no-sandbox", "--disable-dev-shm-usage"]
+        )
+        context = browser.new_context(
+            user_agent=HTTP_HEADERS["User-Agent"],
+            viewport={"width": 1920, "height": 1080},
+            extra_http_headers={"Referer": "https://www.google.com/"},
+            locale="en-IN",
+            timezone_id="Asia/Kolkata"
+        )
 
-        is_downloaded = bool(raw_title)
-        is_cleaned = bool(cleaned_title)
-        
-        if is_downloaded: downloaded_count += 1
-        if is_cleaned: cleaned_count += 1
+        for index, url in enumerate(urls, start=1):
+            domain = urllib.parse.urlparse(url).netloc
+            domain = domain.replace("www.", "") if domain.startswith("www.") else domain
+            
+            log_msg(f"\n--- [{index}/{len(urls)}] {domain} ---")
+            log_msg(f"URL: {url}")
 
-        log_msg(f"\nDomain: {domain}")
-        log_msg(f"Raw: {raw_title if raw_title else 'FAILED'}")
-        log_msg(f"Cleaned: {cleaned_title if cleaned_title else 'FAILED'}")
+            html_content = None
+            raw_title = ""
+            used_tier = None
 
-        results.append({
-            "domain": domain,
-            "cleaned_title": cleaned_title,
-            "raw_title": raw_title,
-            "is_downloaded": is_downloaded,
-            "is_cleaned": is_cleaned
-        })
+            try:
+                page = context.new_page()
+                page.goto(url, wait_until="domcontentloaded", timeout=30000)
+                page.wait_for_timeout(8000) 
 
-    new_run_block = {
-        "timestamp": timestamp,
+                temp_content = page.content()
+                page.close()
+
+                if is_valid_html(temp_content):
+                    html_content = temp_content
+                    used_tier = "Tier 1 (Playwright Stealth)"
+            except Exception:
+                pass
+
+            if not html_content:
+                html_content, used_tier = fallback_download(url)
+            if not html_content:
+                html_content, used_tier = scrape_do_fallback(url)
+            if not html_content:
+                html_content, used_tier = amp_cache_fallback(url)
+            if not html_content:
+                html_content, used_tier = google_translate_fallback(url)
+            if not html_content:
+                html_content, used_tier = archive_fallback(url)
+
+            if html_content:
+                title_match = re.search(r'<title[^>]*>(.*?)</title>', html_content, re.IGNORECASE | re.DOTALL)
+                if title_match:
+                    raw_title = title_match.group(1).strip()
+                    raw_title = html.unescape(raw_title)
+
+            log_msg(f"Downloaded: {'Y (' + used_tier + ')' if html_content else 'N'}")
+            log_msg(f"Title found: {raw_title if raw_title else 'FAILED'}")
+
+            runtime_entries.append([domain, raw_title])
+
+        browser.close()
+
+    runtime_data = {
+        "timestamp": datetime.now().astimezone().isoformat(),
         "movie_name": movie_name,
-        "results": results
+        "entries": runtime_entries
     }
 
-    existing_data = []
-    if os.path.exists(OUTPUT_FILE):
-        try:
-            with open(OUTPUT_FILE, "r", encoding="utf-8") as f:
-                existing_data = json.load(f)
-                if not isinstance(existing_data, list):
-                    existing_data = []
-        except json.JSONDecodeError:
-            pass
+    with open(TEMP_RUNTIME_FILE, "w", encoding="utf-8") as f:
+        json.dump(runtime_data, f, ensure_ascii=False, indent=4)
 
-    existing_data.insert(0, new_run_block)
-
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-        json.dump(existing_data, f, ensure_ascii=False, indent=4)
-
-    log_msg("\n============================================================")
-    log_msg("RUN STATISTICS")
-    log_msg("============================================================")
-    for res in results:
-        down_status = "Y" if res['is_downloaded'] else "N"
-        clean_status = "Y" if res['is_cleaned'] else "N"
-        log_msg(f"Domain: {res['domain']} | Downloaded: {down_status} | Cleaned: {clean_status}")
-    
-    log_msg("------------------------------------------------------------")
-    log_msg(f"Total URLs Processed    : {len(entries)}")
-    log_msg(f"Successfully Downloaded : {downloaded_count}")
-    log_msg(f"Successfully Cleaned    : {cleaned_count}")
-    log_msg("============================================================")
-
-    log_msg(f"\n[CLEANER] Complete. Finalized results saved to {OUTPUT_FILE}")
+    log_msg(f"\n[FINDER] Complete. Saved runtime data to {TEMP_RUNTIME_FILE}")
 
 if __name__ == "__main__":
     main()
