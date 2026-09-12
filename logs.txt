@@ -1,10 +1,10 @@
---- RUN STARTED: 2026-09-12T11:00:21.233488+00:00 ---
+--- RUN STARTED: 2026-09-12T12:18:32.514629+00:00 ---
 [FINDER] Initializing. Movie: 'Param Sundari' | URLs: 12
 
 --- [1/12] indianexpress.com ---
 URL: https://indianexpress.com/article/entertainment/movie-review/param-sundari-movie-review-sidharth-malhotra-janhvi-kapoor-film-struggles-to-find-both-rom-and-com-10218294/
-Downloaded: N
-Title found: FAILED
+Downloaded: Y (Tier 6 (Archive.org))
+Title found: Param Sundari movie review: Sidharth Malhotra-Janhvi Kapoor film struggles to find both rom and com | Movie-review News - The Indian Express
 
 --- [2/12] news18.com ---
 URL: https://www.news18.com/movies/bollywood/param-sundari-review-sidharth-malhotra-janhvi-kapoor-chemistry-crackles-in-heartfelt-rom-com-ws-kl-9535782.html
@@ -62,76 +62,3 @@ Downloaded: Y (Tier 1 (Playwright Stealth))
 Title found: ‘Param Sundari’ Movie Review: Culture-Clash Romcom Falls Flat - THR India
 
 [FINDER] Complete. Saved runtime data to temp_runtime.json
-
-[CLEANER] Processing 12 entries for movie: 'Param Sundari'
-
-Domain: indianexpress.com
-Raw: FAILED
-Cleaned: FAILED
-
-Domain: news18.com
-Raw: Param Sundari Review: Sidharth Malhotra, Janhvi Kapoor’s Chemistry Crackles In Heartfelt Rom-Com | Bollywood News - News18
-Cleaned: Sidharth Malhotra, Janhvi Kapoor’s Chemistry Crackles In Heartfelt Rom-Com
-
-Domain: bollywoodhungama.com
-Raw: Param Sundari Movie Review: PARAM SUNDARI is a pleasant rom com
-Cleaned: PARAM SUNDARI is a pleasant rom com
-
-Domain: koimoi.com
-Raw: Param Sundari Movie Review: Sidharth Malhotra & Janhvi Kapoor’s Film Is A Lighthearted Love-Fest Ideal For Pyar-Ishq-Mohabbat Fans!
-Cleaned: Sidharth Malhotra & Janhvi Kapoor’s Film Is A Lighthearted Love-Fest Ideal For Pyar-Ishq-Mohabbat Fans!
-
-Domain: timesofindia.indiatimes.com
-Raw: Param Sundari Movie Review: Sidharth Malhotra and Janhvi Kapoor’s charming chemistry anchors this rom-com
-Cleaned: Sidharth Malhotra and Janhvi Kapoor’s charming chemistry anchors this rom-com
-
-Domain: ndtv.com
-Raw: Param Sundari Review: This Sidharth Malhotra-Janhvi Kapoor Rom-Com Is An Unabashed Love Letter To Shah Rukh Khan's Films - 3 Stars
-Cleaned: This Sidharth Malhotra-Janhvi Kapoor Rom-Com Is An Unabashed Love Letter To Shah Rukh Khan's Films - 3 Stars
-
-Domain: indiatoday.in
-Raw: Param Sundari movie review: Sidharth Malhotra, Janhvi Kapoor can sell Kerala trips, not love - India Today
-Cleaned: Sidharth Malhotra, Janhvi Kapoor can sell Kerala trips, not love
-
-Domain: firstpost.com
-Raw: 'Param Sundari' Movie Review: Sidharth Malhotra-Janhvi Kapoor’s ‘wicked pairing’ was the major highlight
-Cleaned: Sidharth Malhotra-Janhvi Kapoor’s ‘wicked pairing’ was the major highlight
-
-Domain: deccanherald.com
-Raw: Param Sundari Review: Sidharth Malhotra & Janhvi Kapoor Fail to Impress in Predictable Rom-Com | Param Sundari Movie Review news
-Cleaned: FAILED
-
-Domain: cinemaexpress.com
-Raw: Param Sundari Movie Review: Sidharth Malhotra and Janhvi Kapoor’s rom-com goes south from the get go
-Cleaned: Sidharth Malhotra and Janhvi Kapoor’s rom-com goes south from the get go
-
-Domain: hindustantimes.com
-Raw: FAILED
-Cleaned: FAILED
-
-Domain: hollywoodreporterindia.com
-Raw: ‘Param Sundari’ Movie Review: Culture-Clash Romcom Falls Flat - THR India
-Cleaned: Culture-Clash Romcom Falls Flat
-
-============================================================
-RUN STATISTICS
-============================================================
-Domain: indianexpress.com | Downloaded: N | Cleaned: N
-Domain: news18.com | Downloaded: Y | Cleaned: Y
-Domain: bollywoodhungama.com | Downloaded: Y | Cleaned: Y
-Domain: koimoi.com | Downloaded: Y | Cleaned: Y
-Domain: timesofindia.indiatimes.com | Downloaded: Y | Cleaned: Y
-Domain: ndtv.com | Downloaded: Y | Cleaned: Y
-Domain: indiatoday.in | Downloaded: Y | Cleaned: Y
-Domain: firstpost.com | Downloaded: Y | Cleaned: Y
-Domain: deccanherald.com | Downloaded: Y | Cleaned: N
-Domain: cinemaexpress.com | Downloaded: Y | Cleaned: Y
-Domain: hindustantimes.com | Downloaded: N | Cleaned: N
-Domain: hollywoodreporterindia.com | Downloaded: Y | Cleaned: Y
-------------------------------------------------------------
-Total URLs Processed    : 12
-Successfully Downloaded : 10
-Successfully Cleaned    : 9
-============================================================
-
-[CLEANER] Complete. Finalized results saved to output.json
