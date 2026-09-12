@@ -9,6 +9,7 @@ from datetime import datetime
 # ============================================================
 TEMP_RUNTIME_FILE = "temp_runtime.json"
 OUTPUT_FILE = "output.json"
+LOG_FILE = "logs.txt"
 
 REVIEW_IDENTIFIERS = [
     "hindimoviereview", "hindifilmreview", "moviereview", "filmreview", "review",
@@ -27,8 +28,17 @@ PUBLISHERS = [
     "Free Press Journal", "Mid-Day", "The Siasat Daily", "The Tribune", 
     "Amar Ujala", "Dainik Bhaskar", "Dainik Jagran", "Hindustan", 
     "Navbharat Times", "Lokmat", "NDTV", "News18", "WION", "Aaj Tak", "ABP",
-    "The Lensmen Reviews", "Suyash Pachauri Writes", "Film Information", "The Open Press"
+    "The Lensmen Reviews", "Suyash Pachauri Writes", "Film Information", "The Open Press",
+    "news", "reviews", "THR India"
 ]
+
+# ============================================================
+# HELPER: LOGGING
+# ============================================================
+def log_msg(msg):
+    print(msg)
+    with open(LOG_FILE, "a", encoding="utf-8") as f:
+        f.write(msg + "\n")
 
 # ============================================================
 # TITLE CLEANING ALGORITHM
@@ -66,7 +76,6 @@ def build_candidates(movie_name):
             candidates.append({"normalized": movie_norm + ident_norm})
             candidates.append({"normalized": ident_norm + movie_norm})
 
-        # FINAL FALLBACK: Just the Movie Name
         if movie_norm:
             candidates.append({"normalized": movie_norm})
 
@@ -85,29 +94,54 @@ def clean_title(raw_title, candidates, normalized_publishers):
 
     title_norm, positions = normalize_with_positions(raw_title)
 
-    # STEP 1 & 2: Rightmost Movie/Review Match
     extracted_text = ""
+
     for candidate in candidates:
-        match_idx = title_norm.rfind(candidate["normalized"])
-        if match_idx != -1:
-            match_end = match_idx + len(candidate["normalized"])
-
-            if match_end >= len(positions):
-                return ""
-
-            original_start = positions[match_end]
-            extracted_text = raw_title[original_start:]
-            break
+        cand_norm = candidate["normalized"]
+        matches = []
+        start = 0
+        
+        while True:
+            idx = title_norm.find(cand_norm, start)
+            if idx == -1:
+                break
+            matches.append(idx)
+            start = idx + len(cand_norm)
+            
+        if not matches:
+            continue
+            
+        pieces = []
+        for i in range(len(matches)):
+            match_end_norm = matches[i] + len(cand_norm)
+            if match_end_norm >= len(positions):
+                pieces.append("")
+                continue
+                
+            raw_start = positions[match_end_norm]
+            
+            if i + 1 < len(matches):
+                next_match_start_norm = matches[i+1]
+                raw_end = positions[next_match_start_norm]
+                pieces.append(raw_title[raw_start:raw_end])
+            else:
+                pieces.append(raw_title[raw_start:])
+                
+        best_piece = ""
+        for piece in pieces:
+            if len(piece.strip()) >= len(best_piece.strip()):
+                best_piece = piece
+                
+        extracted_text = best_piece
+        break
 
     if not extracted_text:
         return "" 
 
-    # STEP 3: Rightmost Pipe (|) Removal
     r_pipe_idx = extracted_text.rfind('|')
     if r_pipe_idx != -1:
         extracted_text = extracted_text[:r_pipe_idx].strip()
 
-    # STEP 4: Publisher Removal 
     ext_norm, ext_positions = normalize_with_positions(extracted_text)
     for pub_norm, _ in normalized_publishers:
         if ext_norm.endswith(pub_norm):
@@ -119,7 +153,6 @@ def clean_title(raw_title, candidates, normalized_publishers):
                 extracted_text = extracted_text[:original_cut_idx]
             break
 
-    # STEP 5: Trailing Cleanup
     extracted_text = re.sub(r'[\s\-–—|]+$', '', extracted_text)
     return extracted_text
 
@@ -128,7 +161,7 @@ def clean_title(raw_title, candidates, normalized_publishers):
 # ============================================================
 def main():
     if not os.path.exists(TEMP_RUNTIME_FILE):
-        print(f"[ERROR] {TEMP_RUNTIME_FILE} not found. Run finder.py first.")
+        log_msg(f"[ERROR] {TEMP_RUNTIME_FILE} not found. Run finder.py first.")
         return
 
     with open(TEMP_RUNTIME_FILE, "r", encoding="utf-8") as f:
@@ -138,7 +171,7 @@ def main():
     movie_name = runtime_data.get("movie_name")
     entries = runtime_data.get("entries", [])
 
-    print(f"[CLEANER] Processing {len(entries)} entries for movie: '{movie_name}'")
+    log_msg(f"\n[CLEANER] Processing {len(entries)} entries for movie: '{movie_name}'")
 
     candidates = build_candidates(movie_name)
     normalized_publishers = []
@@ -148,18 +181,28 @@ def main():
     normalized_publishers.sort(key=lambda x: x[1], reverse=True)
 
     results = []
+    downloaded_count = 0
+    cleaned_count = 0
 
     for domain, raw_title in entries:
         cleaned_title = clean_title(raw_title, candidates, normalized_publishers) if raw_title else ""
+
+        is_downloaded = bool(raw_title)
+        is_cleaned = bool(cleaned_title)
         
-        print(f"\nDomain: {domain}")
-        print(f"Raw: {raw_title if raw_title else 'FAILED'}")
-        print(f"Cleaned: {cleaned_title if cleaned_title else 'FAILED'}")
+        if is_downloaded: downloaded_count += 1
+        if is_cleaned: cleaned_count += 1
+
+        log_msg(f"\nDomain: {domain}")
+        log_msg(f"Raw: {raw_title if raw_title else 'FAILED'}")
+        log_msg(f"Cleaned: {cleaned_title if cleaned_title else 'FAILED'}")
 
         results.append({
             "domain": domain,
             "cleaned_title": cleaned_title,
-            "raw_title": raw_title
+            "raw_title": raw_title,
+            "is_downloaded": is_downloaded,
+            "is_cleaned": is_cleaned
         })
 
     new_run_block = {
@@ -183,7 +226,21 @@ def main():
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         json.dump(existing_data, f, ensure_ascii=False, indent=4)
 
-    print(f"\n[CLEANER] Complete. Finalized results saved to {OUTPUT_FILE}")
+    log_msg("\n============================================================")
+    log_msg("RUN STATISTICS")
+    log_msg("============================================================")
+    for res in results:
+        down_status = "Y" if res['is_downloaded'] else "N"
+        clean_status = "Y" if res['is_cleaned'] else "N"
+        log_msg(f"Domain: {res['domain']} | Downloaded: {down_status} | Cleaned: {clean_status}")
+    
+    log_msg("------------------------------------------------------------")
+    log_msg(f"Total URLs Processed    : {len(entries)}")
+    log_msg(f"Successfully Downloaded : {downloaded_count}")
+    log_msg(f"Successfully Cleaned    : {cleaned_count}")
+    log_msg("============================================================")
+
+    log_msg(f"\n[CLEANER] Complete. Finalized results saved to {OUTPUT_FILE}")
 
 if __name__ == "__main__":
     main()
