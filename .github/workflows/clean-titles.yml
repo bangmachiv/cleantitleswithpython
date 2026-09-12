@@ -1,45 +1,50 @@
-name: Scrape and Clean Titles
+name: Movie Review Pipeline
 
 on:
-  workflow_dispatch: # Allows manual trigger from the GitHub Actions tab
+  workflow_dispatch:
+  push:
+    branches: [ main, master ]
 
-# Required so the Action can commit and push back to your repo
 permissions:
   contents: write
 
 jobs:
-  scrape-and-clean:
+  run-pipeline:
     runs-on: ubuntu-latest
+    
+    env:
+      PYTHONUNBUFFERED: 1  # Ensures real-time streaming of logs
+      SCRAPE_DO_TOKEN: ${{ secrets.SCRAPE_DO_TOKEN }} # Loads your proxy token if set in repo secrets
 
     steps:
-      - name: Checkout Code
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+          cache: 'pip'
 
-      - name: Install Python Dependencies
+      - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install playwright playwright-stealth curl_cffi requests
+          pip install curl_cffi requests playwright playwright-stealth
+
+      - name: Install Playwright Chromium Browser
+        run: |
           playwright install chromium
 
-      - name: Run Cleaner Script
-        env:
-          # PYTHONUNBUFFERED forces Python to stream logs instantly to GitHub console
-          PYTHONUNBUFFERED: 1
-          # Optional: define this in GitHub Secrets if you use Scrape.do for Tier 3
-          SCRAPE_DO_TOKEN: ${{ secrets.SCRAPE_DO_TOKEN }}
+      - name: Step 1 - Run Finder (Download & Extract Raw Titles)
+        run: python finder.py
+
+      - name: Step 2 - Run Cleaner (Apply Deterministic Rules)
         run: python cleaner.py
 
-      - name: Commit and Push output.json
+      - name: Commit and Push Results
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action Bot"
-          
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add output.json
-          
-          # Only commit and push if output.json was actually modified
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Update output.json with latest scraping run" && git push)
+          git diff --staged --quiet || git commit -m "Auto-update movie review output.json [skip ci]"
+          git push
