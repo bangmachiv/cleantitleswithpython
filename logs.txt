@@ -1,137 +1,167 @@
---- RUN STARTED: 2026-09-12T13:03:09.262448+00:00 ---
-[FINDER] Initializing. Movie: 'Param Sundari' | URLs: 12
+--- RUN STARTED: 2026-09-12T13:09:08.753820+00:00 ---
+[FINDER] Initializing. Movie: 'Bharat Bhhagya Viddhaata' | URLs: 15
 
---- [1/12] indianexpress.com ---
-URL: https://indianexpress.com/article/entertainment/movie-review/param-sundari-movie-review-sidharth-malhotra-janhvi-kapoor-film-struggles-to-find-both-rom-and-com-10218294/
+--- [1/15] indianexpress.com ---
+URL: https://indianexpress.com/article/entertainment/movie-review/bharat-bhhagya-viddhaata-movie-review-resurgent-kangana-ranaut-leads-this-gripping-film-10736289/
 Downloaded: Y (Tier 6 (Archive.org))
-Title found: Param Sundari movie review: Sidharth Malhotra-Janhvi Kapoor film struggles to find both rom and com | Movie-review News - The Indian Express
+Title found: Bharat Bhhagya Viddhaata movie review: Resurgent Kangana Ranaut leads this gripping film | Movie-review News - The Indian Express
 
---- [2/12] news18.com ---
-URL: https://www.news18.com/movies/bollywood/param-sundari-review-sidharth-malhotra-janhvi-kapoor-chemistry-crackles-in-heartfelt-rom-com-ws-kl-9535782.html
+--- [2/15] baradwajrangan.wordpress.com ---
+URL: https://baradwajrangan.wordpress.com/2026/06/18/manoj-tapadias-bharat-bhhagya-viddhaata-is-a-moving-well-crafted-tribute-to-the-heroines-of-26-11/
+Downloaded: Y (Tier 6 (Archive.org))
+Title found: Manoj Tapadia’s ‘Bharat Bhhagya Viddhaata’ is a moving, well-crafted tribute to the heroines of 26/11 | Baradwaj Rangan
+
+--- [3/15] news.abplive.com ---
+URL: https://news.abplive.com/movie-review/entertainment/movie-review-bharat-bhhagya-viddhaata-review-kangana-ranaut-s-film-is-the-26-11-tribute-we-owed-our-nurses-1849746
 Downloaded: Y (Tier 1 (Playwright Stealth))
-Title found: Param Sundari Review: Sidharth Malhotra, Janhvi Kapoor’s Chemistry Crackles In Heartfelt Rom-Com | Bollywood News - News18
+Title found: Bharat Bhhagya Viddhaata Review | Kangana Ranaut’s Film Is The 26/11 Tribute We Owed Our Nurses
 
---- [3/12] bollywoodhungama.com ---
-URL: https://www.bollywoodhungama.com/movie/param-sundari/critic-review/param-sundari-movie-review/param-sundari-is-a-pleasant-rom-com/
+--- [4/15] news18.com ---
+URL: https://www.news18.com/movies/reviews/bharat-bhhagya-viddhaata-review-kangana-ranaut-leads-a-powerful-ode-to-nurses-who-saved-lives-during-26-11-ws-kl-10144199.html
 Downloaded: Y (Tier 1 (Playwright Stealth))
-Title found: Param Sundari Movie Review: PARAM SUNDARI is a pleasant rom com
+Title found: Bharat Bhhagya Viddhaata Review: Kangana Ranaut Leads A Powerful Ode To Nurses Who Saved Lives During 26/11 | Reviews News - News18
 
---- [4/12] koimoi.com ---
-URL: https://www.koimoi.com/bollywood-movies/movie-reviews/param-sundari-movie-review-sidharth-malhotra-janhvi-kapoors-film-is-a-lighthearted-love-fest-ideal-for-pyar-ishq-mohabbat-fans/
+--- [5/15] aajtak.in ---
+URL: https://www.aajtak.in/entertainment/film-review/story/kangana-ranaut-bharat-bhhagya-viddhaata-movie-review-hindi-tmovg-dskc-2576565-2026-06-12
 Downloaded: Y (Tier 1 (Playwright Stealth))
-Title found: Param Sundari Movie Review: Sidharth Malhotra & Janhvi Kapoor’s Film Is A Lighthearted Love-Fest Ideal For Pyar-Ishq-Mohabbat Fans!
+Title found: Bharat Bhhagya Viddhaata Review: कंगना रनौत की दमदार एक्टिंग, 26/11 हमलों में नर्सों की बहादुरी को करेंगे सलाम, दिल जीत लेगी फिल्म  - Kangana Ranaut Bharat Bhhagya Viddhaata Movie Review Hindi tmovg - AajTak
 
---- [5/12] timesofindia.indiatimes.com ---
-URL: https://timesofindia.indiatimes.com/entertainment/hindi/movie-reviews/param-sundari/movie-review/123581130.cms
+--- [6/15] timesofindia.indiatimes.com ---
+URL: https://timesofindia.indiatimes.com/entertainment/hindi/bharat-bhhagya-viddhaata/movie-review/131673647.cms
 Downloaded: Y (Tier 1 (Playwright Stealth))
-Title found: Param Sundari Movie Review: Sidharth Malhotra and Janhvi Kapoor’s charming chemistry anchors this rom-com
+Title found: Bharat Bhhagya Viddhaata Movie Review: A tense thriller rooted in humanity and hope
 
---- [6/12] ndtv.com ---
-URL: https://www.ndtv.com/entertainment/param-sundari-review-this-sidharth-malhotra-janhvi-kapoor-rom-com-is-an-unabashed-love-letter-to-shah-rukh-khans-films-3-stars-9180617
+--- [7/15] koimoi.com ---
+URL: https://www.koimoi.com/bollywood-movies/movie-reviews/bharat-bhhagya-viddhaata-movie-review-kangana-ranaut-leads-a-stirring-tribute-to-the-unsung-heroes-of-26-11/
 Downloaded: Y (Tier 1 (Playwright Stealth))
-Title found: Param Sundari Review: This Sidharth Malhotra-Janhvi Kapoor Rom-Com Is An Unabashed Love Letter To Shah Rukh Khan's Films - 3 Stars
+Title found: Bharat Bhhagya Viddhaata Movie Review: Kangana Ranaut Leads A Stirring Tribute To The Unsung Heroes Of 26/11
 
---- [7/12] indiatoday.in ---
-URL: https://www.indiatoday.in/movies/reviews/story/param-sundari-movie-review-sidharth-malhotra-janhvi-kapoor-can-sell-kerala-trips-not-love-2778728-2025-08-29
+--- [8/15] filmfare.com ---
+URL: https://www.filmfare.com/reviews/bollywood-movies/bharat-bhhagya-viddhaata-review-a-tribute-to-everyday-heroes-84408.html
 Downloaded: Y (Tier 1 (Playwright Stealth))
-Title found: Param Sundari movie review: Sidharth Malhotra, Janhvi Kapoor can sell Kerala trips, not love - India Today
+Title found: Bharat Bhhagya Viddhaata Review: A Tribute to Everyday Heroes | Filmfare.com
 
---- [8/12] firstpost.com ---
-URL: https://www.firstpost.com/entertainment/param-sundari-movie-review-janhvi-kapoor-sidharth-malhotras-kind-of-wicked-pairing-was-the-major-highlight-13929013.html
+--- [9/15] hindustantimes.com ---
+URL: https://www.hindustantimes.com/entertainment/bollywood/bharat-bhhagya-viddhaata-review-a-nail-biting-tribute-to-courage-under-fire-by-kangana-ranaut-and-her-coactors-101781238598976.html
+Downloaded: Y (Tier 6 (Archive.org))
+Title found: Bharat Bhhagya Viddhaata review: A nail-biting tribute to courage under fire by Kangana Ranaut and her co-actors | Bollywood
+
+--- [10/15] filmibeat.com ---
+URL: https://www.filmibeat.com/bollywood/reviews/2026/bharat-bhhagya-viddhaata-movie-review-rating-kangana-ranaut-shines-sincere-retelling-cama-hospital-520591.html
 Downloaded: Y (Tier 1 (Playwright Stealth))
-Title found: 'Param Sundari' Movie Review: Sidharth Malhotra-Janhvi Kapoor’s ‘wicked pairing’ was the major highlight
+Title found: Bharat Bhhagya Viddhaata Movie Review And Rating (Non-Spoiler): Kangana Ranaut Shines In Sincere Retelling Of Cama Hospital's Heroism | Bharat Bhhagya Viddhaata (Bharat Bhagya Vidhata) Film Review Out | Bharat Bhhagya Viddhaata Rating Out Of 5 | Is Bharat Bhhagya Viddhaata Worth The Wait? Check Filmibeat Review Here - Filmibeat
 
---- [9/12] deccanherald.com ---
-URL: https://www.deccanherald.com/entertainment/param-sundari-movie-review-old-wine-in-new-bottle-3703179
+--- [11/15] indiatoday.in ---
+URL: https://www.indiatoday.in/movies/reviews/story/bharat-bhagya-viddhaata-review-kangana-ranaut-is-flame-in-2611-attack-film-that-could-have-been-a-fire-2925481-2026-06-12
 Downloaded: Y (Tier 1 (Playwright Stealth))
-Title found: Param Sundari Review: Sidharth Malhotra & Janhvi Kapoor Fail to Impress in Predictable Rom-Com | Param Sundari Movie Review news
+Title found: Bharat Bhhagya Viddhaata review: Kangana Ranaut is flame in film that could have been a fire - India Today
 
---- [10/12] cinemaexpress.com ---
-URL: https://www.cinemaexpress.com/hindi/review/2025/Aug/29/param-sundari-movie-review-sidharth-malhotra-and-janhvi-kapoors-rom-com-goes-south-from-the-get-go
-Downloaded: Y (Tier 1 (Playwright Stealth))
-Title found: Param Sundari Movie Review: Sidharth Malhotra and Janhvi Kapoor’s rom-com goes south from the get go
-
---- [11/12] hindustantimes.com ---
-URL: https://www.hindustantimes.com/entertainment/bollywood/param-sundari-movie-review-janhvi-kapoor-sidharth-malhotra-rom-com-about-soulmates-has-no-soul-101756451974347.html
+--- [12/15] lehren.com ---
+URL: https://lehren.com/bharat-bhhagya-viddhaata-movie-review-caregiving-camaraderie-courage/
 Downloaded: N
 Title found: FAILED
 
---- [12/12] hollywoodreporterindia.com ---
-URL: https://www.hollywoodreporterindia.com/reviews/theatrical/param-sundari-movie-review-sidharth-malhotra-janhvi-kapoors-culture-clash-romcom-has-no-identity-of-its-own
+--- [13/15] bollywoodhungama.com ---
+URL: https://www.bollywoodhungama.com/movie/bharat-bhhagya-viddhaata/critic-review/bharat-bhhagya-viddhaata-movie-review/bharat-bhhagya-viddhaata-boasts-a-compelling-story-and-sincere-performances-but-is-let-down-by-weak-storytelling/
 Downloaded: Y (Tier 1 (Playwright Stealth))
-Title found: ‘Param Sundari’ Movie Review: Culture-Clash Romcom Falls Flat - THR India
+Title found: Bharat Bhhagya Viddhaata Movie Review: BHARAT BHHAGYA VIDDHAATA boasts a compelling story and sincere performances but is let down by weak storytelling
+
+--- [14/15] scroll.in ---
+URL: https://scroll.in/reel/1093416/bharat-bhhagya-viddhaata-review-a-gripping-account-of-uncommon-courage-against-terror
+Downloaded: Y (Tier 1 (Playwright Stealth))
+Title found: Bharat Bhhagya Viddhaata review: A gripping account of uncommon courage against terror
+
+--- [15/15] varietyindia.com ---
+URL: https://varietyindia.com/bharat-bhhagya-viddhaata-review-not-all-heroes-wear-capes-some-wear-scrubs/
+Downloaded: Y (Tier 1 (Playwright Stealth))
+Title found: Bharat Bhhagya Viddhaata Review: A Moving Medical Drama
 
 [FINDER] Complete. Saved runtime data to temp_runtime.json
 
-[CLEANER] Processing 12 entries for movie: 'Param Sundari'
+[CLEANER] Processing 15 entries for movie: 'Bharat Bhhagya Viddhaata'
 
 Domain: indianexpress.com
-Raw: Param Sundari movie review: Sidharth Malhotra-Janhvi Kapoor film struggles to find both rom and com | Movie-review News - The Indian Express
-Cleaned: Sidharth Malhotra-Janhvi Kapoor film struggles to find both rom and com
+Raw: Bharat Bhhagya Viddhaata movie review: Resurgent Kangana Ranaut leads this gripping film | Movie-review News - The Indian Express
+Cleaned: Resurgent Kangana Ranaut leads this gripping film
+
+Domain: baradwajrangan.wordpress.com
+Raw: Manoj Tapadia’s ‘Bharat Bhhagya Viddhaata’ is a moving, well-crafted tribute to the heroines of 26/11 | Baradwaj Rangan
+Cleaned: is a moving, well-crafted tribute to the heroines of 26/11
+
+Domain: news.abplive.com
+Raw: Bharat Bhhagya Viddhaata Review | Kangana Ranaut’s Film Is The 26/11 Tribute We Owed Our Nurses
+Cleaned: Kangana Ranaut’s Film Is The 26/11 Tribute We Owed Our Nurses
 
 Domain: news18.com
-Raw: Param Sundari Review: Sidharth Malhotra, Janhvi Kapoor’s Chemistry Crackles In Heartfelt Rom-Com | Bollywood News - News18
-Cleaned: Sidharth Malhotra, Janhvi Kapoor’s Chemistry Crackles In Heartfelt Rom-Com
+Raw: Bharat Bhhagya Viddhaata Review: Kangana Ranaut Leads A Powerful Ode To Nurses Who Saved Lives During 26/11 | Reviews News - News18
+Cleaned: Kangana Ranaut Leads A Powerful Ode To Nurses Who Saved Lives During 26/11
 
-Domain: bollywoodhungama.com
-Raw: Param Sundari Movie Review: PARAM SUNDARI is a pleasant rom com
-Cleaned: is a pleasant rom com
-
-Domain: koimoi.com
-Raw: Param Sundari Movie Review: Sidharth Malhotra & Janhvi Kapoor’s Film Is A Lighthearted Love-Fest Ideal For Pyar-Ishq-Mohabbat Fans!
-Cleaned: Sidharth Malhotra & Janhvi Kapoor’s Film Is A Lighthearted Love-Fest Ideal For Pyar-Ishq-Mohabbat Fans!
+Domain: aajtak.in
+Raw: Bharat Bhhagya Viddhaata Review: कंगना रनौत की दमदार एक्टिंग, 26/11 हमलों में नर्सों की बहादुरी को करेंगे सलाम, दिल जीत लेगी फिल्म  - Kangana Ranaut Bharat Bhhagya Viddhaata Movie Review Hindi tmovg - AajTak
+Cleaned: कंगना रनौत की दमदार एक्टिंग, 26/11 हमलों में नर्सों की बहादुरी को करेंगे सलाम, दिल जीत लेगी फिल्म  - Kangana Ranaut
 
 Domain: timesofindia.indiatimes.com
-Raw: Param Sundari Movie Review: Sidharth Malhotra and Janhvi Kapoor’s charming chemistry anchors this rom-com
-Cleaned: Sidharth Malhotra and Janhvi Kapoor’s charming chemistry anchors this rom-com
+Raw: Bharat Bhhagya Viddhaata Movie Review: A tense thriller rooted in humanity and hope
+Cleaned: A tense thriller rooted in humanity and hope
 
-Domain: ndtv.com
-Raw: Param Sundari Review: This Sidharth Malhotra-Janhvi Kapoor Rom-Com Is An Unabashed Love Letter To Shah Rukh Khan's Films - 3 Stars
-Cleaned: This Sidharth Malhotra-Janhvi Kapoor Rom-Com Is An Unabashed Love Letter To Shah Rukh Khan's Films - 3 Stars
+Domain: koimoi.com
+Raw: Bharat Bhhagya Viddhaata Movie Review: Kangana Ranaut Leads A Stirring Tribute To The Unsung Heroes Of 26/11
+Cleaned: Kangana Ranaut Leads A Stirring Tribute To The Unsung Heroes Of 26/11
 
-Domain: indiatoday.in
-Raw: Param Sundari movie review: Sidharth Malhotra, Janhvi Kapoor can sell Kerala trips, not love - India Today
-Cleaned: Sidharth Malhotra, Janhvi Kapoor can sell Kerala trips, not love
-
-Domain: firstpost.com
-Raw: 'Param Sundari' Movie Review: Sidharth Malhotra-Janhvi Kapoor’s ‘wicked pairing’ was the major highlight
-Cleaned: Sidharth Malhotra-Janhvi Kapoor’s ‘wicked pairing’ was the major highlight
-
-Domain: deccanherald.com
-Raw: Param Sundari Review: Sidharth Malhotra & Janhvi Kapoor Fail to Impress in Predictable Rom-Com | Param Sundari Movie Review news
-Cleaned: Sidharth Malhotra & Janhvi Kapoor Fail to Impress in Predictable Rom-Com
-
-Domain: cinemaexpress.com
-Raw: Param Sundari Movie Review: Sidharth Malhotra and Janhvi Kapoor’s rom-com goes south from the get go
-Cleaned: Sidharth Malhotra and Janhvi Kapoor’s rom-com goes south from the get go
+Domain: filmfare.com
+Raw: Bharat Bhhagya Viddhaata Review: A Tribute to Everyday Heroes | Filmfare.com
+Cleaned: A Tribute to Everyday Heroes
 
 Domain: hindustantimes.com
+Raw: Bharat Bhhagya Viddhaata review: A nail-biting tribute to courage under fire by Kangana Ranaut and her co-actors | Bollywood
+Cleaned: A nail-biting tribute to courage under fire by Kangana Ranaut and her co-actors
+
+Domain: filmibeat.com
+Raw: Bharat Bhhagya Viddhaata Movie Review And Rating (Non-Spoiler): Kangana Ranaut Shines In Sincere Retelling Of Cama Hospital's Heroism | Bharat Bhhagya Viddhaata (Bharat Bhagya Vidhata) Film Review Out | Bharat Bhhagya Viddhaata Rating Out Of 5 | Is Bharat Bhhagya Viddhaata Worth The Wait? Check Filmibeat Review Here - Filmibeat
+Cleaned: Non-Spoiler): Kangana Ranaut Shines In Sincere Retelling Of Cama Hospital's Heroism
+
+Domain: indiatoday.in
+Raw: Bharat Bhhagya Viddhaata review: Kangana Ranaut is flame in film that could have been a fire - India Today
+Cleaned: Kangana Ranaut is flame in film that could have been a fire
+
+Domain: lehren.com
 Raw: FAILED
 Cleaned: FAILED
 
-Domain: hollywoodreporterindia.com
-Raw: ‘Param Sundari’ Movie Review: Culture-Clash Romcom Falls Flat - THR India
-Cleaned: Culture-Clash Romcom Falls Flat
+Domain: bollywoodhungama.com
+Raw: Bharat Bhhagya Viddhaata Movie Review: BHARAT BHHAGYA VIDDHAATA boasts a compelling story and sincere performances but is let down by weak storytelling
+Cleaned: boasts a compelling story and sincere performances but is let down by weak storytelling
+
+Domain: scroll.in
+Raw: Bharat Bhhagya Viddhaata review: A gripping account of uncommon courage against terror
+Cleaned: A gripping account of uncommon courage against terror
+
+Domain: varietyindia.com
+Raw: Bharat Bhhagya Viddhaata Review: A Moving Medical Drama
+Cleaned: A Moving Medical Drama
 
 ============================================================
 RUN STATISTICS
 ============================================================
 Domain: indianexpress.com | Downloaded: Y | Cleaned: Y
+Domain: baradwajrangan.wordpress.com | Downloaded: Y | Cleaned: Y
+Domain: news.abplive.com | Downloaded: Y | Cleaned: Y
 Domain: news18.com | Downloaded: Y | Cleaned: Y
-Domain: bollywoodhungama.com | Downloaded: Y | Cleaned: Y
-Domain: koimoi.com | Downloaded: Y | Cleaned: Y
+Domain: aajtak.in | Downloaded: Y | Cleaned: Y
 Domain: timesofindia.indiatimes.com | Downloaded: Y | Cleaned: Y
-Domain: ndtv.com | Downloaded: Y | Cleaned: Y
+Domain: koimoi.com | Downloaded: Y | Cleaned: Y
+Domain: filmfare.com | Downloaded: Y | Cleaned: Y
+Domain: hindustantimes.com | Downloaded: Y | Cleaned: Y
+Domain: filmibeat.com | Downloaded: Y | Cleaned: Y
 Domain: indiatoday.in | Downloaded: Y | Cleaned: Y
-Domain: firstpost.com | Downloaded: Y | Cleaned: Y
-Domain: deccanherald.com | Downloaded: Y | Cleaned: Y
-Domain: cinemaexpress.com | Downloaded: Y | Cleaned: Y
-Domain: hindustantimes.com | Downloaded: N | Cleaned: N
-Domain: hollywoodreporterindia.com | Downloaded: Y | Cleaned: Y
+Domain: lehren.com | Downloaded: N | Cleaned: N
+Domain: bollywoodhungama.com | Downloaded: Y | Cleaned: Y
+Domain: scroll.in | Downloaded: Y | Cleaned: Y
+Domain: varietyindia.com | Downloaded: Y | Cleaned: Y
 ------------------------------------------------------------
-Total URLs Processed    : 12
-Successfully Downloaded : 11
-Successfully Cleaned    : 11
+Total URLs Processed    : 15
+Successfully Downloaded : 14
+Successfully Cleaned    : 14
 ============================================================
 
 [CLEANER] Complete. Finalized results saved to output.json
