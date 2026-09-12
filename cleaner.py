@@ -13,7 +13,8 @@ LOG_FILE = "logs.txt"
 
 REVIEW_IDENTIFIERS = [
     "hindimoviereview", "hindifilmreview", "moviereview", "filmreview", "review",
-    "review and rating", "movie review and rating"
+    "review and rating", "movie review and rating",
+    "review and rating (non-spoiler)", "movie review and rating (non-spoiler)"
 ]
 
 PUBLISHERS = [
@@ -61,29 +62,38 @@ def get_movie_variants(movie_name):
 
 def build_candidates(movie_name):
     variants = get_movie_variants(movie_name)
-    candidates = []
+    primary = []
+    secondary = []
+    
     for variant in variants:
         movie_norm, _ = normalize_with_positions(variant)
         for identifier in REVIEW_IDENTIFIERS:
             ident_norm, _ = normalize_with_positions(identifier)
-            candidates.append({"normalized": movie_norm + ident_norm})
-            candidates.append({"normalized": ident_norm + movie_norm})
+            primary.append({"normalized": movie_norm + ident_norm})
+            primary.append({"normalized": ident_norm + movie_norm})
         if movie_norm:
-            candidates.append({"normalized": movie_norm})
+            secondary.append({"normalized": movie_norm})
 
-    unique_candidates = []
-    seen = set()
-    for c in sorted(candidates, key=lambda x: len(x["normalized"]), reverse=True):
-        if c["normalized"] not in seen:
-            seen.add(c["normalized"])
-            unique_candidates.append(c)
-    return unique_candidates
+    def unique_sort(cand_list):
+        uniq = []
+        seen = set()
+        for c in sorted(cand_list, key=lambda x: len(x["normalized"]), reverse=True):
+            if c["normalized"] not in seen:
+                seen.add(c["normalized"])
+                uniq.append(c)
+        return uniq
 
-def clean_title(raw_title, candidates, normalized_publishers):
+    return unique_sort(primary), unique_sort(secondary)
+
+def clean_title(raw_title, primary_candidates, secondary_candidates, normalized_publishers):
     if not raw_title or not raw_title.strip():
         return ""
 
     title_norm, positions = normalize_with_positions(raw_title)
+
+    # If any primary identifier exists in the string, ignore secondary (movie-only) identifiers
+    has_primary = any(title_norm.find(c["normalized"]) != -1 for c in primary_candidates)
+    active_candidates = primary_candidates if has_primary else secondary_candidates
 
     extracted_text = ""
     intervals = []
@@ -91,7 +101,7 @@ def clean_title(raw_title, candidates, normalized_publishers):
     
     while i < len(title_norm):
         best_match_len = 0
-        for candidate in candidates:
+        for candidate in active_candidates:
             cand_norm = candidate["normalized"]
             if title_norm.startswith(cand_norm, i):
                 if len(cand_norm) > best_match_len:
@@ -143,7 +153,20 @@ def clean_title(raw_title, candidates, normalized_publishers):
                 extracted_text = extracted_text[:original_cut_idx]
             break
 
+    # STEP 5: Trailing Cleanup
+    
+    # 5a. Remove dangling SEO Actor names (e.g., " - Kangana Ranaut")
+    extracted_text = re.sub(r'\s+[\-–—]\s+(?:[A-Z][a-zA-Z]*\s*){1,4}$', '', extracted_text)
+    
+    # 5b. Remove standard trailing punctuation/spaces
     extracted_text = re.sub(r'[\s\-–—|]+$', '', extracted_text)
+    
+    # 5c. Capitalize the first alphabetical character
+    for i, char in enumerate(extracted_text):
+        if char.isalpha():
+            extracted_text = extracted_text[:i] + char.upper() + extracted_text[i+1:]
+            break
+
     return extracted_text
 
 def main():
@@ -160,7 +183,8 @@ def main():
 
     log_msg(f"\n[CLEANER] Processing {len(entries)} entries for movie: '{movie_name}'")
 
-    candidates = build_candidates(movie_name)
+    primary_cands, secondary_cands = build_candidates(movie_name)
+    
     normalized_publishers = []
     for pub in PUBLISHERS:
         norm_pub, _ = normalize_with_positions(pub)
@@ -172,7 +196,7 @@ def main():
     cleaned_count = 0
 
     for domain, raw_title in entries:
-        cleaned_title = clean_title(raw_title, candidates, normalized_publishers) if raw_title else ""
+        cleaned_title = clean_title(raw_title, primary_cands, secondary_cands, normalized_publishers) if raw_title else ""
 
         is_downloaded = bool(raw_title)
         is_cleaned = bool(cleaned_title)
