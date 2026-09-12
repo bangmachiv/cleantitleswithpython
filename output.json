@@ -1,5 +1,126 @@
 [
     {
+        "timestamp": "2026-09-12T01:32:50.254491+00:00",
+        "movie_name": "Batwara 1947",
+        "results": [
+            {
+                "domain": "ndtv.com",
+                "cleaned_title": "Shabana Azmi Does What Naseeruddin Shah Did In Main Vaapas Aaunga - 3 stars",
+                "raw_title": "Batwara 1947 Review: Shabana Azmi Does What Naseeruddin Shah Did In Main Vaapas Aaunga - 3 stars"
+            },
+            {
+                "domain": "indianexpress.com",
+                "cleaned_title": "",
+                "raw_title": ""
+            },
+            {
+                "domain": "koimoi.com",
+                "cleaned_title": "Sunny Deol & Shabana Azmi's Film Is Not An India-Pakistan Partition Story—It Stirs A Bigger Debate About Us As People!",
+                "raw_title": "Batwara 1947 Movie Review: Sunny Deol & Shabana Azmi's Film Is Not An India-Pakistan Partition Story—It Stirs A Bigger Debate About Us As People!"
+            },
+            {
+                "domain": "filmfare.com",
+                "cleaned_title": "Humanity’s Triumph Over Hatred",
+                "raw_title": "Batwara 1947 Review: Humanity’s Triumph Over Hatred | Filmfare.com"
+            },
+            {
+                "domain": "hindustantimes.com",
+                "cleaned_title": "",
+                "raw_title": ""
+            },
+            {
+                "domain": "dnaindia.com",
+                "cleaned_title": "Sunny Deol- Rajkumar Santoshi's reunion rides high on emotions, tear-jerking drama, projects most sensible take on India-Pakistan conflict",
+                "raw_title": "Batwara 1947 movie review: Sunny Deol- Rajkumar Santoshi's reunion rides high on emotions, tear-jerking drama, projects most sensible take on India-Pakistan conflict"
+            },
+            {
+                "domain": "abplive.com",
+                "cleaned_title": "Aamir Khan Sunny Deol Film Batwara Star Rating",
+                "raw_title": "'बंटवारा 1947' मूवी रिव्यू: ‘गदर’ वाले सनी देओल से बिल्कुल अलग हैं ‘सिकंदर मिर्जा’, शबाना आजमी ने रुलाया | Batwara 1947 Movie Review Aamir Khan Sunny Deol Film Batwara Star Rating"
+            },
+            {
+                "domain": "mensxp.com",
+                "cleaned_title": "Shabana, Sunny Deol Lead an Emotionally Charged and Power-Packed Film",
+                "raw_title": "Batwara 1947 Review: Shabana, Sunny Deol Lead an Emotionally Charged and Power-Packed Film"
+            },
+            {
+                "domain": "news.abplive.com",
+                "cleaned_title": "Sunny Deol, Preity Zinta, Shabana Azmi, Abhimanyu Singh Bring ‘Mazhab Nahi Sikhata Aapas Mein Bair Rakhna’ To Life",
+                "raw_title": "‘Batwara 1947’ Review | Sunny Deol, Preity Zinta, Shabana Azmi, Abhimanyu Singh Bring ‘Mazhab Nahi Sikhata Aapas Mein Bair Rakhna’ To Life"
+            },
+            {
+                "domain": "bollywoodhungama.com",
+                "cleaned_title": "BATWARA 1947 is a well-intentioned and moving tale of humanity.",
+                "raw_title": "Batwara 1947 Movie Review: BATWARA 1947 is a well-intentioned and moving tale of humanity."
+            },
+            {
+                "domain": "timesofindia.indiatimes.com",
+                "cleaned_title": "An earnest message of harmony gets an overwrought treatment",
+                "raw_title": "Batwara 1947  Movie Review: An earnest message of harmony gets an overwrought treatment"
+            },
+            {
+                "domain": "rediff.com",
+                "cleaned_title": "Good Intentions, Stilted Execution",
+                "raw_title": "Batwara 1947 Review: Good Intentions, Stilted Execution - Rediff.com movies"
+            },
+            {
+                "domain": "indiatoday.in",
+                "cleaned_title": "Sunny Deol leads a partition drama with strong ideas, weak execution",
+                "raw_title": "Batwara 1947 review: Sunny Deol leads a partition drama with strong ideas, weak execution - India Today"
+            },
+            {
+                "domain": "lehren.com",
+                "cleaned_title": "",
+                "raw_title": ""
+            },
+            {
+                "domain": "theopenpress.in",
+                "cleaned_title": "",
+                "raw_title": "Bot Verification"
+            },
+            {
+                "domain": "thehindu.com",
+                "cleaned_title": "Sunny Deol-Shabana Azmi symphony breathes life into Partition drama",
+                "raw_title": "‘Batwara 1947’ movie review: Sunny Deol-Shabana Azmi symphony breathes life into Partition drama - The Hindu"
+            },
+            {
+                "domain": "firstpost.com",
+                "cleaned_title": "Sunny Deol trades jingoism for a more important battle",
+                "raw_title": "Batwara 1947 review: Sunny Deol trades jingoism for a more important battle"
+            },
+            {
+                "domain": "t2online.in",
+                "cleaned_title": "",
+                "raw_title": "Batwara 1947: Sunny Deol Trades Action For Pure Emotion | Movie Review | t2ONLINE"
+            },
+            {
+                "domain": "scroll.in",
+                "cleaned_title": "Dull storytelling and sharp messaging",
+                "raw_title": "Batwara 1947 film review: Dull storytelling and sharp messaging"
+            },
+            {
+                "domain": "news18.com",
+                "cleaned_title": "Sunny Deol Is Terrific, Preity Zinta And Shabana Are Azmi Exceptional; Check Rating",
+                "raw_title": "Batwara 1947 Movie Review: Sunny Deol Is Terrific, Preity Zinta And Shabana Are Azmi Exceptional; Check Rating | Bollywood News - News18"
+            },
+            {
+                "domain": "gulfnews.com",
+                "cleaned_title": "Sunny Deol’s Partition Drama Smothers Powerful Mother-Son Story with Overwrought Sermons on Faith and Humanity",
+                "raw_title": "Batwara 1947 Review: Sunny Deol’s Partition Drama Smothers Powerful Mother-Son Story with Overwrought Sermons on Faith and Humanity"
+            },
+            {
+                "domain": "deccanherald.com",
+                "cleaned_title": "Sunny Deol film's timely message feels trapped in the past",
+                "raw_title": "Batwara 1947 review: Sunny Deol film's timely message feels trapped in the past"
+            },
+            {
+                "domain": "hollywoodreporterindia.com",
+                "cleaned_title": "Sunny Deol Leads a Partition-Era Tale of Faith, Violence and Compassion",
+                "raw_title": "Batwara 1947 Movie Review: Sunny Deol Leads a Partition-Era Tale of Faith, Violence and Compassion"
+            }
+        ]
+    },
+    {
         "timestamp": "2026-09-12T01:16:12.478040+00:00",
         "movie_name": "Awarapan 2",
         "results": [
