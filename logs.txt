@@ -1,1 +1,137 @@
- 
+--- RUN STARTED: 2026-09-12T11:00:21.233488+00:00 ---
+[FINDER] Initializing. Movie: 'Param Sundari' | URLs: 12
+
+--- [1/12] indianexpress.com ---
+URL: https://indianexpress.com/article/entertainment/movie-review/param-sundari-movie-review-sidharth-malhotra-janhvi-kapoor-film-struggles-to-find-both-rom-and-com-10218294/
+Downloaded: N
+Title found: FAILED
+
+--- [2/12] news18.com ---
+URL: https://www.news18.com/movies/bollywood/param-sundari-review-sidharth-malhotra-janhvi-kapoor-chemistry-crackles-in-heartfelt-rom-com-ws-kl-9535782.html
+Downloaded: Y (Tier 1 (Playwright Stealth))
+Title found: Param Sundari Review: Sidharth Malhotra, Janhvi Kapoor’s Chemistry Crackles In Heartfelt Rom-Com | Bollywood News - News18
+
+--- [3/12] bollywoodhungama.com ---
+URL: https://www.bollywoodhungama.com/movie/param-sundari/critic-review/param-sundari-movie-review/param-sundari-is-a-pleasant-rom-com/
+Downloaded: Y (Tier 1 (Playwright Stealth))
+Title found: Param Sundari Movie Review: PARAM SUNDARI is a pleasant rom com
+
+--- [4/12] koimoi.com ---
+URL: https://www.koimoi.com/bollywood-movies/movie-reviews/param-sundari-movie-review-sidharth-malhotra-janhvi-kapoors-film-is-a-lighthearted-love-fest-ideal-for-pyar-ishq-mohabbat-fans/
+Downloaded: Y (Tier 1 (Playwright Stealth))
+Title found: Param Sundari Movie Review: Sidharth Malhotra & Janhvi Kapoor’s Film Is A Lighthearted Love-Fest Ideal For Pyar-Ishq-Mohabbat Fans!
+
+--- [5/12] timesofindia.indiatimes.com ---
+URL: https://timesofindia.indiatimes.com/entertainment/hindi/movie-reviews/param-sundari/movie-review/123581130.cms
+Downloaded: Y (Tier 1 (Playwright Stealth))
+Title found: Param Sundari Movie Review: Sidharth Malhotra and Janhvi Kapoor’s charming chemistry anchors this rom-com
+
+--- [6/12] ndtv.com ---
+URL: https://www.ndtv.com/entertainment/param-sundari-review-this-sidharth-malhotra-janhvi-kapoor-rom-com-is-an-unabashed-love-letter-to-shah-rukh-khans-films-3-stars-9180617
+Downloaded: Y (Tier 1 (Playwright Stealth))
+Title found: Param Sundari Review: This Sidharth Malhotra-Janhvi Kapoor Rom-Com Is An Unabashed Love Letter To Shah Rukh Khan's Films - 3 Stars
+
+--- [7/12] indiatoday.in ---
+URL: https://www.indiatoday.in/movies/reviews/story/param-sundari-movie-review-sidharth-malhotra-janhvi-kapoor-can-sell-kerala-trips-not-love-2778728-2025-08-29
+Downloaded: Y (Tier 1 (Playwright Stealth))
+Title found: Param Sundari movie review: Sidharth Malhotra, Janhvi Kapoor can sell Kerala trips, not love - India Today
+
+--- [8/12] firstpost.com ---
+URL: https://www.firstpost.com/entertainment/param-sundari-movie-review-janhvi-kapoor-sidharth-malhotras-kind-of-wicked-pairing-was-the-major-highlight-13929013.html
+Downloaded: Y (Tier 1 (Playwright Stealth))
+Title found: 'Param Sundari' Movie Review: Sidharth Malhotra-Janhvi Kapoor’s ‘wicked pairing’ was the major highlight
+
+--- [9/12] deccanherald.com ---
+URL: https://www.deccanherald.com/entertainment/param-sundari-movie-review-old-wine-in-new-bottle-3703179
+Downloaded: Y (Tier 1 (Playwright Stealth))
+Title found: Param Sundari Review: Sidharth Malhotra & Janhvi Kapoor Fail to Impress in Predictable Rom-Com | Param Sundari Movie Review news
+
+--- [10/12] cinemaexpress.com ---
+URL: https://www.cinemaexpress.com/hindi/review/2025/Aug/29/param-sundari-movie-review-sidharth-malhotra-and-janhvi-kapoors-rom-com-goes-south-from-the-get-go
+Downloaded: Y (Tier 1 (Playwright Stealth))
+Title found: Param Sundari Movie Review: Sidharth Malhotra and Janhvi Kapoor’s rom-com goes south from the get go
+
+--- [11/12] hindustantimes.com ---
+URL: https://www.hindustantimes.com/entertainment/bollywood/param-sundari-movie-review-janhvi-kapoor-sidharth-malhotra-rom-com-about-soulmates-has-no-soul-101756451974347.html
+Downloaded: N
+Title found: FAILED
+
+--- [12/12] hollywoodreporterindia.com ---
+URL: https://www.hollywoodreporterindia.com/reviews/theatrical/param-sundari-movie-review-sidharth-malhotra-janhvi-kapoors-culture-clash-romcom-has-no-identity-of-its-own
+Downloaded: Y (Tier 1 (Playwright Stealth))
+Title found: ‘Param Sundari’ Movie Review: Culture-Clash Romcom Falls Flat - THR India
+
+[FINDER] Complete. Saved runtime data to temp_runtime.json
+
+[CLEANER] Processing 12 entries for movie: 'Param Sundari'
+
+Domain: indianexpress.com
+Raw: FAILED
+Cleaned: FAILED
+
+Domain: news18.com
+Raw: Param Sundari Review: Sidharth Malhotra, Janhvi Kapoor’s Chemistry Crackles In Heartfelt Rom-Com | Bollywood News - News18
+Cleaned: Sidharth Malhotra, Janhvi Kapoor’s Chemistry Crackles In Heartfelt Rom-Com
+
+Domain: bollywoodhungama.com
+Raw: Param Sundari Movie Review: PARAM SUNDARI is a pleasant rom com
+Cleaned: PARAM SUNDARI is a pleasant rom com
+
+Domain: koimoi.com
+Raw: Param Sundari Movie Review: Sidharth Malhotra & Janhvi Kapoor’s Film Is A Lighthearted Love-Fest Ideal For Pyar-Ishq-Mohabbat Fans!
+Cleaned: Sidharth Malhotra & Janhvi Kapoor’s Film Is A Lighthearted Love-Fest Ideal For Pyar-Ishq-Mohabbat Fans!
+
+Domain: timesofindia.indiatimes.com
+Raw: Param Sundari Movie Review: Sidharth Malhotra and Janhvi Kapoor’s charming chemistry anchors this rom-com
+Cleaned: Sidharth Malhotra and Janhvi Kapoor’s charming chemistry anchors this rom-com
+
+Domain: ndtv.com
+Raw: Param Sundari Review: This Sidharth Malhotra-Janhvi Kapoor Rom-Com Is An Unabashed Love Letter To Shah Rukh Khan's Films - 3 Stars
+Cleaned: This Sidharth Malhotra-Janhvi Kapoor Rom-Com Is An Unabashed Love Letter To Shah Rukh Khan's Films - 3 Stars
+
+Domain: indiatoday.in
+Raw: Param Sundari movie review: Sidharth Malhotra, Janhvi Kapoor can sell Kerala trips, not love - India Today
+Cleaned: Sidharth Malhotra, Janhvi Kapoor can sell Kerala trips, not love
+
+Domain: firstpost.com
+Raw: 'Param Sundari' Movie Review: Sidharth Malhotra-Janhvi Kapoor’s ‘wicked pairing’ was the major highlight
+Cleaned: Sidharth Malhotra-Janhvi Kapoor’s ‘wicked pairing’ was the major highlight
+
+Domain: deccanherald.com
+Raw: Param Sundari Review: Sidharth Malhotra & Janhvi Kapoor Fail to Impress in Predictable Rom-Com | Param Sundari Movie Review news
+Cleaned: FAILED
+
+Domain: cinemaexpress.com
+Raw: Param Sundari Movie Review: Sidharth Malhotra and Janhvi Kapoor’s rom-com goes south from the get go
+Cleaned: Sidharth Malhotra and Janhvi Kapoor’s rom-com goes south from the get go
+
+Domain: hindustantimes.com
+Raw: FAILED
+Cleaned: FAILED
+
+Domain: hollywoodreporterindia.com
+Raw: ‘Param Sundari’ Movie Review: Culture-Clash Romcom Falls Flat - THR India
+Cleaned: Culture-Clash Romcom Falls Flat
+
+============================================================
+RUN STATISTICS
+============================================================
+Domain: indianexpress.com | Downloaded: N | Cleaned: N
+Domain: news18.com | Downloaded: Y | Cleaned: Y
+Domain: bollywoodhungama.com | Downloaded: Y | Cleaned: Y
+Domain: koimoi.com | Downloaded: Y | Cleaned: Y
+Domain: timesofindia.indiatimes.com | Downloaded: Y | Cleaned: Y
+Domain: ndtv.com | Downloaded: Y | Cleaned: Y
+Domain: indiatoday.in | Downloaded: Y | Cleaned: Y
+Domain: firstpost.com | Downloaded: Y | Cleaned: Y
+Domain: deccanherald.com | Downloaded: Y | Cleaned: N
+Domain: cinemaexpress.com | Downloaded: Y | Cleaned: Y
+Domain: hindustantimes.com | Downloaded: N | Cleaned: N
+Domain: hollywoodreporterindia.com | Downloaded: Y | Cleaned: Y
+------------------------------------------------------------
+Total URLs Processed    : 12
+Successfully Downloaded : 10
+Successfully Cleaned    : 9
+============================================================
+
+[CLEANER] Complete. Finalized results saved to output.json
