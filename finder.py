@@ -21,6 +21,7 @@ SCRAPE_DO_TOKEN = os.environ.get("SCRAPE_DO_TOKEN")
 
 INPUT_FILE = "input.txt"
 TEMP_RUNTIME_FILE = "temp_runtime.json"
+LOG_FILE = "logs.txt"
 MIN_VALID_HTML_BYTES = 2000
 
 HTTP_HEADERS = {
@@ -29,6 +30,14 @@ HTTP_HEADERS = {
     "Accept-Language": "en-US,en;q=0.9",
     "Referer": "https://www.google.com/",
 }
+
+# ============================================================
+# HELPER: LOGGING
+# ============================================================
+def log_msg(msg):
+    print(msg)
+    with open(LOG_FILE, "a", encoding="utf-8") as f:
+        f.write(msg + "\n")
 
 # ============================================================
 # HELPER: DOWNLOAD VALIDATION
@@ -130,21 +139,25 @@ def archive_fallback(url: str):
 # MAIN FINDER EXECUTION
 # ============================================================
 def main():
+    # Initialize / Clear the log file for the new run
+    with open(LOG_FILE, "w", encoding="utf-8") as f:
+        f.write(f"--- RUN STARTED: {datetime.now().astimezone().isoformat()} ---\n")
+
     if not os.path.exists(INPUT_FILE):
-        print(f"[ERROR] {INPUT_FILE} not found in root directory.")
+        log_msg(f"[ERROR] {INPUT_FILE} not found in root directory.")
         return
 
     with open(INPUT_FILE, "r", encoding="utf-8") as f:
         lines = [line.strip() for line in f if line.strip()]
 
     if not lines:
-        print("[ERROR] input.txt is empty.")
+        log_msg("[ERROR] input.txt is empty.")
         return
 
     movie_name = lines[0]
     urls = lines[1:]
 
-    print(f"[FINDER] Initializing. Movie: '{movie_name}' | URLs: {len(urls)}")
+    log_msg(f"[FINDER] Initializing. Movie: '{movie_name}' | URLs: {len(urls)}")
 
     runtime_entries = []
 
@@ -166,8 +179,8 @@ def main():
             domain = urllib.parse.urlparse(url).netloc
             domain = domain.replace("www.", "") if domain.startswith("www.") else domain
             
-            print(f"\n--- [{index}/{len(urls)}] {domain} ---")
-            print(f"URL: {url}")
+            log_msg(f"\n--- [{index}/{len(urls)}] {domain} ---")
+            log_msg(f"URL: {url}")
 
             html_content = None
             raw_title = ""
@@ -206,10 +219,9 @@ def main():
                     raw_title = title_match.group(1).strip()
                     raw_title = html.unescape(raw_title)
 
-            print(f"Downloaded: {'Y (' + used_tier + ')' if html_content else 'N'}")
-            print(f"Title found: {raw_title if raw_title else 'FAILED'}")
+            log_msg(f"Downloaded: {'Y (' + used_tier + ')' if html_content else 'N'}")
+            log_msg(f"Title found: {raw_title if raw_title else 'FAILED'}")
 
-            # Format requested: [domain, raw_title]
             runtime_entries.append([domain, raw_title])
 
         browser.close()
@@ -223,7 +235,7 @@ def main():
     with open(TEMP_RUNTIME_FILE, "w", encoding="utf-8") as f:
         json.dump(runtime_data, f, ensure_ascii=False, indent=4)
 
-    print(f"\n[FINDER] Complete. Saved runtime data to {TEMP_RUNTIME_FILE}")
+    log_msg(f"\n[FINDER] Complete. Saved runtime data to {TEMP_RUNTIME_FILE}")
 
 if __name__ == "__main__":
     main()
