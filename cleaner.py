@@ -91,7 +91,6 @@ def clean_title(raw_title, primary_candidates, secondary_candidates, normalized_
 
     title_norm, positions = normalize_with_positions(raw_title)
 
-    # If any primary identifier exists in the string, ignore secondary (movie-only) identifiers
     has_primary = any(title_norm.find(c["normalized"]) != -1 for c in primary_candidates)
     active_candidates = primary_candidates if has_primary else secondary_candidates
 
@@ -138,9 +137,10 @@ def clean_title(raw_title, primary_candidates, secondary_candidates, normalized_
     if not extracted_text:
         return "" 
 
-    r_pipe_idx = extracted_text.rfind('|')
-    if r_pipe_idx != -1:
-        extracted_text = extracted_text[:r_pipe_idx].strip()
+    # STEP 3: Leftmost Pipe (|) Removal
+    l_pipe_idx = extracted_text.find('|')
+    if l_pipe_idx != -1:
+        extracted_text = extracted_text[:l_pipe_idx].strip()
 
     ext_norm, ext_positions = normalize_with_positions(extracted_text)
     for pub_norm, _ in normalized_publishers:
@@ -154,14 +154,9 @@ def clean_title(raw_title, primary_candidates, secondary_candidates, normalized_
             break
 
     # STEP 5: Trailing Cleanup
-    
-    # 5a. Remove dangling SEO Actor names (e.g., " - Kangana Ranaut")
     extracted_text = re.sub(r'\s+[\-–—]\s+(?:[A-Z][a-zA-Z]*\s*){1,4}$', '', extracted_text)
-    
-    # 5b. Remove standard trailing punctuation/spaces
     extracted_text = re.sub(r'[\s\-–—|]+$', '', extracted_text)
     
-    # 5c. Capitalize the first alphabetical character
     for i, char in enumerate(extracted_text):
         if char.isalpha():
             extracted_text = extracted_text[:i] + char.upper() + extracted_text[i+1:]
