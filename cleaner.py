@@ -3,7 +3,7 @@ import os
 import re
 import json
 import urllib.parse
-import html  # Decodes HTML entities BEFORE string processing
+import html  
 from datetime import datetime
 
 # -----------------------------------------------------------------------------
@@ -30,13 +30,11 @@ HTTP_HEADERS = {
     "Referer": "https://www.google.com/",
 }
 
-# Added the new "rating" identifiers
 REVIEW_IDENTIFIERS = [
     "hindimoviereview", "hindifilmreview", "moviereview", "filmreview", "review",
     "review and rating", "movie review and rating"
 ]
 
-# Added "Film Information" and "Telegraph India" to catch the remaining artifacts
 PUBLISHERS = [
     "Bollywood Hungama", "BollySpice", "Cinema Express", "Film Companion", 
     "Glamsham", "High On Films", "Koimoi", "Movie Talkies", "PeepingMoon", 
@@ -84,6 +82,35 @@ def fallback_download(url: str):
         response = session.get(url, timeout=20)
         if response.status_code == 200 and is_valid_html(response.text):
             return response.text, "Tier 2 (curl_cffi)"
+    except Exception:
+        pass
+    return None, None
+
+def amp_cache_fallback(url: str):
+    """
+    Tier 4: Google AMP Cache Hack.
+    Bypasses IP blocks by fetching the news article from Google's cached servers.
+    """
+    try:
+        parsed = urllib.parse.urlparse(url)
+        scheme = parsed.scheme
+        netloc = parsed.netloc.replace('www.', '')
+        
+        # Format the domain for Google AMP (replace dots with dashes)
+        amp_host = netloc.replace('.', '-')
+        
+        s_part = "s/" if scheme == "https" else ""
+        url_without_scheme = url.split("://")[-1]
+        
+        # Construct the Google AMP CDN URL
+        amp_url = f"https://{amp_host}.cdn.ampproject.org/c/{s_part}{url_without_scheme}"
+        
+        session = cffi_requests.Session(impersonate="chrome120")
+        session.headers.update(HTTP_HEADERS)
+        response = session.get(amp_url, timeout=20)
+        
+        if response.status_code == 200 and is_valid_html(response.text):
+            return response.text, "Tier 4 (Google AMP Cache)"
     except Exception:
         pass
     return None, None
@@ -136,9 +163,20 @@ def build_candidates(movie_name):
             ident_norm, _ = normalize_with_positions(identifier)
             candidates.append({"normalized": movie_norm + ident_norm})
             candidates.append({"normalized": ident_norm + movie_norm})
+        
+        # FINAL FALLBACK: Just the Movie Name
+        if movie_norm:
+            candidates.append({"normalized": movie_norm})
             
-    candidates.sort(key=lambda x: len(x["normalized"]), reverse=True)
-    return candidates
+    # Sort by length descending, remove duplicates
+    unique_candidates = []
+    seen = set()
+    for c in sorted(candidates, key=lambda x: len(x["normalized"]), reverse=True):
+        if c["normalized"] not in seen:
+            seen.add(c["normalized"])
+            unique_candidates.append(c)
+            
+    return unique_candidates
 
 def clean_title(raw_title, candidates, normalized_publishers):
     if not raw_title or not raw_title.strip():
@@ -214,7 +252,10 @@ def main():
     results = []
 
     with Stealth().use_sync(sync_playwright()) as p:
+        # CHANGED: Using channel="chrome" forces it to use official Google Chrome 
+        # instead of Chromium, heavily reducing bot detection rates.
         browser = p.chromium.launch(
+            channel="chrome", 
             headless=True,
             args=["--disable-blink-features=AutomationControlled", "--no-sandbox", "--disable-dev-shm-usage"]
         )
@@ -240,9 +281,6 @@ def main():
             try:
                 page = context.new_page()
                 page.goto(url, wait_until="domcontentloaded", timeout=30000)
-                
-                # CHANGED: 8000ms wait instead of 5000ms. 
-                # This perfectly mirrors 03_download.py to bypass Indian Express anti-bot delays.
                 page.wait_for_timeout(8000) 
                 
                 temp_content = page.content()
@@ -256,6 +294,10 @@ def main():
 
             if not html_content:
                 html_content, used_tier = fallback_download(url)
+            
+            # CHANGED: Added AMP Cache Bypass before Scrape.do
+            if not html_content:
+                html_content, used_tier = amp_cache_fallback(url)
 
             if not html_content:
                 html_content, used_tier = scrape_do_fallback(url)
