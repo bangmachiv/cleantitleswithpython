@@ -30,10 +30,13 @@ HTTP_HEADERS = {
     "Referer": "https://www.google.com/",
 }
 
+# Added the new "rating" identifiers
 REVIEW_IDENTIFIERS = [
-    "hindimoviereview", "hindifilmreview", "moviereview", "filmreview", "review"
+    "hindimoviereview", "hindifilmreview", "moviereview", "filmreview", "review",
+    "review and rating", "movie review and rating"
 ]
 
+# Added "Film Information" and "Telegraph India" to catch the remaining artifacts
 PUBLISHERS = [
     "Bollywood Hungama", "BollySpice", "Cinema Express", "Film Companion", 
     "Glamsham", "High On Films", "Koimoi", "Movie Talkies", "PeepingMoon", 
@@ -41,12 +44,12 @@ PUBLISHERS = [
     "Rediff.com", "Rediff.com movies", "Scroll.in", "South Asian Herald", 
     "The Federal", "The News Minute", "The Quint", "Business Standard", "Mint", 
     "Filmfare", "India Today", "Outlook", "Hindustan Times", "The Hindu", 
-    "The Indian Express", "The Sunday Guardian", "The Telegraph", 
+    "The Indian Express", "The Sunday Guardian", "The Telegraph", "Telegraph India",
     "The Times of India", "Deccan Chronicle", "Deccan Herald", 
     "Free Press Journal", "Mid-Day", "The Siasat Daily", "The Tribune", 
     "Amar Ujala", "Dainik Bhaskar", "Dainik Jagran", "Hindustan", 
     "Navbharat Times", "Lokmat", "NDTV", "News18", "WION", "Aaj Tak", "ABP",
-    "The Lensmen Reviews", "Suyash Pachauri Writes"
+    "The Lensmen Reviews", "Suyash Pachauri Writes", "Film Information"
 ]
 
 # ============================================================
@@ -112,7 +115,6 @@ def normalize_with_positions(text):
 
 def get_movie_variants(movie_name):
     variants = []
-    # Split by comma to support aliases (e.g., "Ohh My Dog, Oh My Dog")
     names = [n.strip() for n in movie_name.split(",") if n.strip()]
     
     for name in names:
@@ -132,9 +134,7 @@ def build_candidates(movie_name):
         movie_norm, _ = normalize_with_positions(variant)
         for identifier in REVIEW_IDENTIFIERS:
             ident_norm, _ = normalize_with_positions(identifier)
-            # Pattern 1: Movie + Review (Standard)
             candidates.append({"normalized": movie_norm + ident_norm})
-            # Pattern 2: Review + Movie (Reversed)
             candidates.append({"normalized": ident_norm + movie_norm})
             
     candidates.sort(key=lambda x: len(x["normalized"]), reverse=True)
@@ -153,15 +153,10 @@ def clean_title(raw_title, candidates, normalized_publishers):
         if match_idx != -1:
             match_end = match_idx + len(candidate["normalized"])
             
-            # If the match is at the very end of the string, there's nothing to extract
             if match_end >= len(positions):
                 return ""
                 
-            # By indexing `match_end` into `positions`, it automatically snaps 
-            # to the position of the FIRST alphanumeric character after the match, 
-            # effortlessly skipping colons, spaces, and hyphens in the raw string!
             original_start = positions[match_end]
-            
             extracted_text = raw_title[original_start:]
             break
             
@@ -173,7 +168,7 @@ def clean_title(raw_title, candidates, normalized_publishers):
     if r_pipe_idx != -1:
         extracted_text = extracted_text[:r_pipe_idx].strip()
         
-    # STEP 4: Publisher Removal (Unspaced Alphanumeric matching at the end)
+    # STEP 4: Publisher Removal 
     ext_norm, ext_positions = normalize_with_positions(extracted_text)
     for pub_norm, _ in normalized_publishers:
         if ext_norm.endswith(pub_norm):
@@ -185,7 +180,7 @@ def clean_title(raw_title, candidates, normalized_publishers):
                 extracted_text = extracted_text[:original_cut_idx]
             break
 
-    # STEP 5: Trailing Cleanup (Recursive trailing spaces, dashes, and pipes)
+    # STEP 5: Trailing Cleanup
     extracted_text = re.sub(r'[\s\-–—|]+$', '', extracted_text)
     return extracted_text
 
@@ -245,7 +240,11 @@ def main():
             try:
                 page = context.new_page()
                 page.goto(url, wait_until="domcontentloaded", timeout=30000)
-                page.wait_for_timeout(5000) 
+                
+                # CHANGED: 8000ms wait instead of 5000ms. 
+                # This perfectly mirrors 03_download.py to bypass Indian Express anti-bot delays.
+                page.wait_for_timeout(8000) 
+                
                 temp_content = page.content()
                 page.close()
 
@@ -265,7 +264,6 @@ def main():
                 title_match = re.search(r'<title[^>]*>(.*?)</title>', html_content, re.IGNORECASE | re.DOTALL)
                 if title_match:
                     raw_title = title_match.group(1).strip()
-                    # UNESCAPE HTML ENTITIES INTO PURE TEXT (solves &nbsp; issues)
                     raw_title = html.unescape(raw_title)
                     
             cleaned_title = clean_title(raw_title, candidates, normalized_publishers) if raw_title else ""
@@ -298,7 +296,6 @@ def main():
         except json.JSONDecodeError:
             pass
 
-    # Prepend new run to index 0
     existing_data.insert(0, new_run_block)
 
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
