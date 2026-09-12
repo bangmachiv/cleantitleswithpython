@@ -1,5 +1,111 @@
 [
     {
+        "timestamp": "2026-09-12T02:24:08.125545+00:00",
+        "movie_name": "Main Vaapas Aaunga",
+        "results": [
+            {
+                "domain": "indianexpress.com",
+                "cleaned_title": "Imtiaz Ali film works both as redemption and memorial",
+                "raw_title": "Main Vaapas Aaunga movie review: Imtiaz Ali film works both as redemption and memorial | Movie-review News - The Indian Express"
+            },
+            {
+                "domain": "rediff.com",
+                "cleaned_title": "A Rare Gem",
+                "raw_title": "Main Vaapas Aaunga: A Rare Gem - Rediff.com movies"
+            },
+            {
+                "domain": "koimoi.com",
+                "cleaned_title": "Imtiaz Ali Crafts A Beautiful Poem On Love Amidst Partition's Hatred!",
+                "raw_title": "Main Vaapas Aaunga Movie Review: Imtiaz Ali Crafts A Beautiful Poem On Love Amidst Partition's Hatred!"
+            },
+            {
+                "domain": "freepressjournal.in",
+                "cleaned_title": "Imtiaz Ali Reminds Bollywood How To Tell A Timeless Love Story In An Era Of Action Films",
+                "raw_title": "Main Vaapas Aaunga Review: Imtiaz Ali Reminds Bollywood How To Tell A Timeless Love Story In An Era Of Action Films"
+            },
+            {
+                "domain": "mid-day.com",
+                "cleaned_title": "A lyrical romance set against history’s deepest wounds",
+                "raw_title": "Main Vaapas Aaunga review: A lyrical romance set against history’s deepest wounds"
+            },
+            {
+                "domain": "pinkvilla.com",
+                "cleaned_title": "Naseeruddin Shah, Diljit, Vedang, Sharvari’s pre-partition love story lingers in your heart long after the credits roll",
+                "raw_title": "Main Vaapas Aaunga Review: Naseeruddin Shah, Diljit, Vedang, Sharvari’s pre-partition love story lingers in your heart long after the credits roll | PINKVILLA: Entertainment"
+            },
+            {
+                "domain": "cinemaexpress.com",
+                "cleaned_title": "Imtiaz Ali paints a poignant picture of pain, pining and Partition",
+                "raw_title": "Main Vaapas Aaunga Movie Review: Imtiaz Ali paints a poignant picture of pain, pining and Partition"
+            },
+            {
+                "domain": "ndtv.com",
+                "cleaned_title": "Titan Naseeruddin Shah Delivers A Masterclass",
+                "raw_title": "Main Vaapas Aaunga Review: Titan Naseeruddin Shah Delivers A Masterclass"
+            },
+            {
+                "domain": "outlookindia.com",
+                "cleaned_title": "Naseeruddin Shah, Diljit Dosanjh Shine in Imtiaz Ali’s Partition Story",
+                "raw_title": "Main Vaapas Aaunga Review: Naseeruddin Shah, Diljit Dosanjh Shine in Imtiaz Ali’s Partition Story | Outlook India"
+            },
+            {
+                "domain": "hindustantimes.com",
+                "cleaned_title": "",
+                "raw_title": ""
+            },
+            {
+                "domain": "timesofindia.indiatimes.com",
+                "cleaned_title": "This poetic and deeply emotional tale of unfinished love leaves a lingering ache",
+                "raw_title": "Main Vaapas Aaunga  Movie Review: This poetic and deeply emotional tale of unfinished love leaves a lingering ache"
+            },
+            {
+                "domain": "filmfare.com",
+                "cleaned_title": "A Soulful But Meandering Ode to Love Across a Lifetime",
+                "raw_title": "Main Vaapas Aaunga Review: A Soulful But Meandering Ode to Love Across a Lifetime | Filmfare.com"
+            },
+            {
+                "domain": "lehren.com",
+                "cleaned_title": "",
+                "raw_title": ""
+            },
+            {
+                "domain": "indiatoday.in",
+                "cleaned_title": "The weakest Imtiaz Ali film with Diljit Dosanjh, Sharvari, Vedang Raina",
+                "raw_title": "Main Vaapas Aaunga review: The weakest Imtiaz Ali film with Diljit Dosanjh, Sharvari, Vedang Raina - India Today"
+            },
+            {
+                "domain": "firstpost.com",
+                "cleaned_title": "Naseeruddin Shah, Diljit Dosanjh, Vedang Raina, and Sharvari starrer,  Imtiaz Ali's directorial film shows the pains of partition",
+                "raw_title": "'Main Vaapas Aaunga' Movie Review: Naseeruddin Shah, Diljit Dosanjh, Vedang Raina, and Sharvari starrer,  Imtiaz Ali's directorial film shows the pains of partition  "
+            },
+            {
+                "domain": "hollywoodreporterindia.com",
+                "cleaned_title": "Imtiaz Ali’s Poignant Partition Love Story and Ode to Humanity",
+                "raw_title": "Main Vaapas Aaunga Movie Review: Imtiaz Ali’s Poignant Partition Love Story and Ode to Humanity"
+            },
+            {
+                "domain": "thefederal.com",
+                "cleaned_title": "Imtiaz Ali reaches back to Partition to say what Hindi cinema might be unable to in 2026",
+                "raw_title": "Main Vaapas Aaunga: Imtiaz Ali reaches back to Partition to say what Hindi cinema might be unable to in 2026"
+            },
+            {
+                "domain": "mid-day.com",
+                "cleaned_title": "Imtiaz Ali crafts a moving ode to love lost in Partition",
+                "raw_title": "Main Vaapas Aaunga movie review: Imtiaz Ali crafts a moving ode to love lost in Partition"
+            },
+            {
+                "domain": "frontline.thehindu.com",
+                "cleaned_title": "",
+                "raw_title": "Main Wapas Aaunga Review: Imtiaz Ali on Partition - Frontline"
+            },
+            {
+                "domain": "thehindu.com",
+                "cleaned_title": "Imtiaz Ali’s love story for the ages",
+                "raw_title": "‘Main Vaapas Aaunga’ movie review: Imtiaz Ali’s love story for the ages - The Hindu"
+            }
+        ]
+    },
+    {
         "timestamp": "2026-09-12T02:18:35.744588+00:00",
         "movie_name": "Main Vaapas Aaunga",
         "results": [
