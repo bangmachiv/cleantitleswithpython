@@ -47,7 +47,7 @@ PUBLISHERS = [
     "Free Press Journal", "Mid-Day", "The Siasat Daily", "The Tribune", 
     "Amar Ujala", "Dainik Bhaskar", "Dainik Jagran", "Hindustan", 
     "Navbharat Times", "Lokmat", "NDTV", "News18", "WION", "Aaj Tak", "ABP",
-    "The Lensmen Reviews", "Suyash Pachauri Writes", "Film Information"
+    "The Lensmen Reviews", "Suyash Pachauri Writes", "Film Information", "The Open Press"
 ]
 
 # ============================================================
@@ -73,9 +73,10 @@ def is_valid_html(html_content: str) -> bool:
     return True
 
 # ============================================================
-# FALLBACK DOWNLOADERS
+# FALLBACK DOWNLOADERS (TIERS 2 to 6)
 # ============================================================
 def fallback_download(url: str):
+    """Tier 2: Curl_cffi TLS Spoofing"""
     try:
         session = cffi_requests.Session(impersonate="chrome120")
         session.headers.update(HTTP_HEADERS)
@@ -86,23 +87,27 @@ def fallback_download(url: str):
         pass
     return None, None
 
+def scrape_do_fallback(url: str):
+    """Tier 3: Scrape.do API (if token exists)"""
+    if not SCRAPE_DO_TOKEN:
+        return None, None
+    encoded_url = urllib.parse.quote(url)
+    api_url = f"http://api.scrape.do/?token={SCRAPE_DO_TOKEN}&url={encoded_url}&render=true&super=true&geoCode=in"
+    try:
+        response = standard_requests.get(api_url, timeout=60)
+        if response.status_code == 200 and is_valid_html(response.text):
+            return response.text, "Tier 3 (Scrape.do)"
+    except Exception:
+        pass
+    return None, None
+
 def amp_cache_fallback(url: str):
-    """
-    Tier 4: Google AMP Cache Hack.
-    Bypasses IP blocks by fetching the news article from Google's cached servers.
-    """
+    """Tier 4: Google AMP Cache Bypass"""
     try:
         parsed = urllib.parse.urlparse(url)
-        scheme = parsed.scheme
-        netloc = parsed.netloc.replace('www.', '')
-        
-        # Format the domain for Google AMP (replace dots with dashes)
-        amp_host = netloc.replace('.', '-')
-        
-        s_part = "s/" if scheme == "https" else ""
+        amp_host = parsed.netloc.replace('www.', '').replace('.', '-')
+        s_part = "s/" if parsed.scheme == "https" else ""
         url_without_scheme = url.split("://")[-1]
-        
-        # Construct the Google AMP CDN URL
         amp_url = f"https://{amp_host}.cdn.ampproject.org/c/{s_part}{url_without_scheme}"
         
         session = cffi_requests.Session(impersonate="chrome120")
@@ -115,15 +120,34 @@ def amp_cache_fallback(url: str):
         pass
     return None, None
 
-def scrape_do_fallback(url: str):
-    if not SCRAPE_DO_TOKEN:
-        return None, None
-    encoded_url = urllib.parse.quote(url)
-    api_url = f"http://api.scrape.do/?token={SCRAPE_DO_TOKEN}&url={encoded_url}&render=true&super=true&geoCode=in"
+def google_translate_fallback(url: str):
+    """Tier 5: Google Translate Proxy Hack"""
     try:
-        response = standard_requests.get(api_url, timeout=60)
+        encoded_url = urllib.parse.quote(url)
+        translate_url = f"https://translate.google.com/translate?sl=en&tl=en&u={encoded_url}"
+        
+        session = cffi_requests.Session(impersonate="chrome120")
+        session.headers.update(HTTP_HEADERS)
+        response = session.get(translate_url, timeout=20)
+        
         if response.status_code == 200 and is_valid_html(response.text):
-            return response.text, "Tier 3 (Scrape.do)"
+            return response.text, "Tier 5 (Google Translate)"
+    except Exception:
+        pass
+    return None, None
+
+def archive_fallback(url: str):
+    """Tier 6: Wayback Machine (Archive.org) Hack"""
+    try:
+        # /web/2/ fetches the most recent archived version of the page
+        archive_url = f"https://web.archive.org/web/2/{url}"
+        
+        session = cffi_requests.Session(impersonate="chrome120")
+        session.headers.update(HTTP_HEADERS)
+        response = session.get(archive_url, timeout=30)
+        
+        if response.status_code == 200 and is_valid_html(response.text):
+            return response.text, "Tier 6 (Archive.org)"
     except Exception:
         pass
     return None, None
@@ -168,7 +192,6 @@ def build_candidates(movie_name):
         if movie_norm:
             candidates.append({"normalized": movie_norm})
             
-    # Sort by length descending, remove duplicates
     unique_candidates = []
     seen = set()
     for c in sorted(candidates, key=lambda x: len(x["normalized"]), reverse=True):
@@ -252,8 +275,7 @@ def main():
     results = []
 
     with Stealth().use_sync(sync_playwright()) as p:
-        # CHANGED: Using channel="chrome" forces it to use official Google Chrome 
-        # instead of Chromium, heavily reducing bot detection rates.
+        # channel="chrome" uses official Google Chrome (less likely to be blocked)
         browser = p.chromium.launch(
             channel="chrome", 
             headless=True,
@@ -278,6 +300,7 @@ def main():
             raw_title = ""
             used_tier = None
 
+            # TIER 1: Playwright
             try:
                 page = context.new_page()
                 page.goto(url, wait_until="domcontentloaded", timeout=30000)
@@ -292,16 +315,19 @@ def main():
             except Exception:
                 pass
 
+            # CASCADING FALLBACKS (Tiers 2-6)
             if not html_content:
                 html_content, used_tier = fallback_download(url)
-            
-            # CHANGED: Added AMP Cache Bypass before Scrape.do
-            if not html_content:
-                html_content, used_tier = amp_cache_fallback(url)
-
             if not html_content:
                 html_content, used_tier = scrape_do_fallback(url)
+            if not html_content:
+                html_content, used_tier = amp_cache_fallback(url)
+            if not html_content:
+                html_content, used_tier = google_translate_fallback(url)
+            if not html_content:
+                html_content, used_tier = archive_fallback(url)
 
+            # EXTRACTION & CLEANING
             if html_content:
                 title_match = re.search(r'<title[^>]*>(.*?)</title>', html_content, re.IGNORECASE | re.DOTALL)
                 if title_match:
