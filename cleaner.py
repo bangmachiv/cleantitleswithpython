@@ -3,7 +3,7 @@ import os
 import re
 import json
 import urllib.parse
-import html  # NEW: For decoding HTML entities
+import html  # Decodes HTML entities BEFORE string processing
 from datetime import datetime
 
 # -----------------------------------------------------------------------------
@@ -112,7 +112,7 @@ def normalize_with_positions(text):
 
 def get_movie_variants(movie_name):
     variants = []
-    # Split by comma to support aliases (e.g. "Ohh My Dog, Oh My Dog")
+    # Split by comma to support aliases (e.g., "Ohh My Dog, Oh My Dog")
     names = [n.strip() for n in movie_name.split(",") if n.strip()]
     
     for name in names:
@@ -151,16 +151,18 @@ def clean_title(raw_title, candidates, normalized_publishers):
     for candidate in candidates:
         match_idx = title_norm.rfind(candidate["normalized"])
         if match_idx != -1:
-            # Physically locate the LAST character of the match in the original string
-            last_char_match_idx = match_idx + len(candidate["normalized"]) - 1
-            original_last_char_pos = positions[last_char_match_idx]
+            match_end = match_idx + len(candidate["normalized"])
             
-            # Slice the string starting exactly one character after the match ends
-            original_start = original_last_char_pos + 1
+            # If the match is at the very end of the string, there's nothing to extract
+            if match_end >= len(positions):
+                return ""
+                
+            # By indexing `match_end` into `positions`, it automatically snaps 
+            # to the position of the FIRST alphanumeric character after the match, 
+            # effortlessly skipping colons, spaces, and hyphens in the raw string!
+            original_start = positions[match_end]
+            
             extracted_text = raw_title[original_start:]
-            
-            # Strip leading spaces, colons, or pipes (but retains everything else)
-            extracted_text = re.sub(r'^[\s:|]+', '', extracted_text).strip()
             break
             
     if not extracted_text:
@@ -171,7 +173,7 @@ def clean_title(raw_title, candidates, normalized_publishers):
     if r_pipe_idx != -1:
         extracted_text = extracted_text[:r_pipe_idx].strip()
         
-    # STEP 4: Publisher Removal 
+    # STEP 4: Publisher Removal (Unspaced Alphanumeric matching at the end)
     ext_norm, ext_positions = normalize_with_positions(extracted_text)
     for pub_norm, _ in normalized_publishers:
         if ext_norm.endswith(pub_norm):
@@ -263,7 +265,7 @@ def main():
                 title_match = re.search(r'<title[^>]*>(.*?)</title>', html_content, re.IGNORECASE | re.DOTALL)
                 if title_match:
                     raw_title = title_match.group(1).strip()
-                    # UNESCAPE HTML ENTITIES INTO PURE TEXT
+                    # UNESCAPE HTML ENTITIES INTO PURE TEXT (solves &nbsp; issues)
                     raw_title = html.unescape(raw_title)
                     
             cleaned_title = clean_title(raw_title, candidates, normalized_publishers) if raw_title else ""
