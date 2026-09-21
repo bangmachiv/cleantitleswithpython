@@ -1,167 +1,217 @@
---- RUN STARTED: 2026-09-12T14:13:16.365855+00:00 ---
-[FINDER] Initializing. Movie: 'Bharat Bhhagya Viddhaata' | URLs: 15
+--- RUN STARTED: 2026-09-21T06:16:41.973622+00:00 ---
+[FINDER] Initializing. Movie: 'Vibe' | URLs: 20
 
---- [1/15] indianexpress.com ---
-URL: https://indianexpress.com/article/entertainment/movie-review/bharat-bhhagya-viddhaata-movie-review-resurgent-kangana-ranaut-leads-this-gripping-film-10736289/
+--- [1/20] indianexpress.com ---
+URL: https://indianexpress.com/article/entertainment/movie-review/vibe-movie-review-kunal-kemmu-goofy-spy-saga-has-vibe-10883323/
 Downloaded: Y (Tier 6 (Archive.org))
-Title found: Bharat Bhhagya Viddhaata movie review: Resurgent Kangana Ranaut leads this gripping film | Movie-review News - The Indian Express
+Title found: Vibe movie review: Kunal Kemmu’s goofy spy saga has a vibe | Movie-review News - The Indian Express
 
---- [2/15] baradwajrangan.wordpress.com ---
-URL: https://baradwajrangan.wordpress.com/2026/06/18/manoj-tapadias-bharat-bhhagya-viddhaata-is-a-moving-well-crafted-tribute-to-the-heroines-of-26-11/
+--- [2/20] ndtv.com ---
+URL: https://www.ndtv.com/entertainment/vibe-review-this-spy-comedy-belongs-more-to-kunal-kemmu-the-actor-than-director-2-5-stars-12063700
+Downloaded: Y (Tier 1 (Playwright Stealth))
+Title found: Vibe Review: This Spy Comedy Belongs More To Kunal Kemmu The Actor Than Director - 2.5 Stars
+
+--- [3/20] timesofindia.indiatimes.com ---
+URL: https://timesofindia.indiatimes.com/entertainment/hindi/vibe/movie-review/134325823.cms
+Downloaded: Y (Tier 1 (Playwright Stealth))
+Title found: Vibe Movie Review: Kunal Kemmu’s zany spy comedy gets the vibe right
+
+--- [4/20] filmfare.com ---
+URL: https://www.filmfare.com/reviews/bollywood-movies/vibe-movie-review-a-tale-of-accidental-spies-86023.html
+Downloaded: Y (Tier 1 (Playwright Stealth))
+Title found: Vibe Movie Review: A Tale of Accidental Spies | Filmfare.com
+
+--- [5/20] koimoi.com ---
+URL: https://www.koimoi.com/bollywood-movies/movie-reviews/vibe-movie-review-kunal-kemmus-spy-universe-is-brilliantly-outrageous-making-him-a-bahumulya-gadha-a-loveable-idiot-bollywood-needs-badly/
+Downloaded: Y (Tier 1 (Playwright Stealth))
+Title found: Vibe Movie Review: Kunal Kemmu's Spy Universe Is Brilliantly Outrageous Making Him A Bahumulya Gadha - A Loveable Idiot Bollywood Needs Badly!
+
+--- [6/20] news18.com ---
+URL: https://www.news18.com/movies/bollywood/vibe-review-kunal-kemmus-bahumuliya-gadhas-is-what-bollywood-needs-the-most-ws-l-10336293.html
+Downloaded: Y (Tier 1 (Playwright Stealth))
+Title found: VIBE Review: Kunal Kemmu's ‘Bahumuliya Gadhas’ Is What Bollywood Needs The Most | Bollywood News - News18
+
+--- [7/20] indiatoday.in ---
+URL: https://www.indiatoday.in/movies/reviews/story/vibe-review-kunal-kemmu-sparsh-shrivastava-preity-zinta-spy-comedy-2997399-2026-09-18
+Downloaded: Y (Tier 1 (Playwright Stealth))
+Title found: Vibe review: Kunal Kemmu’s spy comedy is chaotic, charming and occasionally too much - India Today
+
+--- [8/20] hindustantimes.com ---
+URL: https://www.hindustantimes.com/entertainment/bollywood/vibe-review-kunal-kemmu-preity-zinta-comedy-film-has-a-terrific-first-half-but-loses-its-vibe-later-sparsh-shrivastava-101789708572800.html
 Downloaded: Y (Tier 6 (Archive.org))
-Title found: Manoj Tapadia’s ‘Bharat Bhhagya Viddhaata’ is a moving, well-crafted tribute to the heroines of 26/11 | Baradwaj Rangan
+Title found: VIBE review: Kunal Kemmu-Preity Zinta's comedy film has a terrific first half but loses its vibe later | Bollywood
 
---- [3/15] news.abplive.com ---
-URL: https://news.abplive.com/movie-review/entertainment/movie-review-bharat-bhhagya-viddhaata-review-kangana-ranaut-s-film-is-the-26-11-tribute-we-owed-our-nurses-1849746
+--- [9/20] bollywoodhungama.com ---
+URL: https://www.bollywoodhungama.com/movie/vibe/critic-review/vibe-movie-review/vibe-works-due-to-kunal-kemmus-strong-command-over-humour/
 Downloaded: Y (Tier 1 (Playwright Stealth))
-Title found: Bharat Bhhagya Viddhaata Review | Kangana Ranaut’s Film Is The 26/11 Tribute We Owed Our Nurses
+Title found: Vibe Movie Review: VIBE works due to Kunal Kemmu’s strong command over humour
 
---- [4/15] news18.com ---
-URL: https://www.news18.com/movies/reviews/bharat-bhhagya-viddhaata-review-kangana-ranaut-leads-a-powerful-ode-to-nurses-who-saved-lives-during-26-11-ws-kl-10144199.html
+--- [10/20] thequint.com ---
+URL: https://www.thequint.com/entertainment/movie-reviews/vibe-review-kunal-kemmu-preity-zinta-sparsh
 Downloaded: Y (Tier 1 (Playwright Stealth))
-Title found: Bharat Bhhagya Viddhaata Review: Kangana Ranaut Leads A Powerful Ode To Nurses Who Saved Lives During 26/11 | Reviews News - News18
+Title found: 'Vibe' Review: Kunal Kemmu’s Comedy Is No 'Madgaon Express' But Still Delivers A Good Time
 
---- [5/15] aajtak.in ---
-URL: https://www.aajtak.in/entertainment/film-review/story/kangana-ranaut-bharat-bhhagya-viddhaata-movie-review-hindi-tmovg-dskc-2576565-2026-06-12
+--- [11/20] timesnownews.com ---
+URL: https://www.timesnownews.com/entertainment-news/reviews/vibe-2026-movie-review-kunal-kemmu-preity-zinta-sparsh-shrivastavas-quirky-spy-comedy-is-a-fun-watch-review-156178941
 Downloaded: Y (Tier 1 (Playwright Stealth))
-Title found: Bharat Bhhagya Viddhaata Review: कंगना रनौत की दमदार एक्टिंग, 26/11 हमलों में नर्सों की बहादुरी को करेंगे सलाम, दिल जीत लेगी फिल्म  - Kangana Ranaut Bharat Bhhagya Viddhaata Movie Review Hindi tmovg - AajTak
+Title found: VIBE 2026 Movie Review: Kunal Kemmu, Preity Zinta, Sparsh Shrivastava's Quirky Spy Comedy Is A Fun Watch | Times Now
 
---- [6/15] timesofindia.indiatimes.com ---
-URL: https://timesofindia.indiatimes.com/entertainment/hindi/bharat-bhhagya-viddhaata/movie-review/131673647.cms
+--- [12/20] deccanherald.com ---
+URL: https://www.deccanherald.com/entertainment/vibe-movie-review-goof-checks-in-and-stays-on-in-frenzied-plot-4151241
 Downloaded: Y (Tier 1 (Playwright Stealth))
-Title found: Bharat Bhhagya Viddhaata Movie Review: A tense thriller rooted in humanity and hope
+Title found: Vibe movie review: Goofy comedy with espionage twists, Kunal Kemmu shines
 
---- [7/15] koimoi.com ---
-URL: https://www.koimoi.com/bollywood-movies/movie-reviews/bharat-bhhagya-viddhaata-movie-review-kangana-ranaut-leads-a-stirring-tribute-to-the-unsung-heroes-of-26-11/
+--- [13/20] cinemaexpress.com ---
+URL: https://www.cinemaexpress.com/hindi/review/2026/Sep/18/vibe-movie-review-kunal-kemmu-the-actor-is-let-down-by-kunal-kemmu-the-writer
 Downloaded: Y (Tier 1 (Playwright Stealth))
-Title found: Bharat Bhhagya Viddhaata Movie Review: Kangana Ranaut Leads A Stirring Tribute To The Unsung Heroes Of 26/11
+Title found: Vibe Movie Review: Kunal Kemmu the actor is let down by Kunal Kemmu the writer
 
---- [8/15] filmfare.com ---
-URL: https://www.filmfare.com/reviews/bollywood-movies/bharat-bhhagya-viddhaata-review-a-tribute-to-everyday-heroes-84408.html
+--- [14/20] freepressjournal.in ---
+URL: https://www.freepressjournal.in/entertainment/vibe-review-kunal-kemmu-preity-zintas-film-starts-on-a-high-but-loses-its-spark-after-interval
 Downloaded: Y (Tier 1 (Playwright Stealth))
-Title found: Bharat Bhhagya Viddhaata Review: A Tribute to Everyday Heroes | Filmfare.com
+Title found: Vibe Review: Kunal Kemmu, Preity Zinta's Film Starts On A High But Loses Its Spark After Interval
 
---- [9/15] hindustantimes.com ---
-URL: https://www.hindustantimes.com/entertainment/bollywood/bharat-bhhagya-viddhaata-review-a-nail-biting-tribute-to-courage-under-fire-by-kangana-ranaut-and-her-coactors-101781238598976.html
-Downloaded: Y (Tier 6 (Archive.org))
-Title found: Bharat Bhhagya Viddhaata review: A nail-biting tribute to courage under fire by Kangana Ranaut and her co-actors | Bollywood
-
---- [10/15] filmibeat.com ---
-URL: https://www.filmibeat.com/bollywood/reviews/2026/bharat-bhhagya-viddhaata-movie-review-rating-kangana-ranaut-shines-sincere-retelling-cama-hospital-520591.html
+--- [15/20] rediff.com ---
+URL: https://www.rediff.com/movies/review/vibe-review-kunal-kemmu-film-is-more-ridiculous-than-funny/20260918.htm
 Downloaded: Y (Tier 1 (Playwright Stealth))
-Title found: Bharat Bhhagya Viddhaata Movie Review And Rating (Non-Spoiler): Kangana Ranaut Shines In Sincere Retelling Of Cama Hospital's Heroism | Bharat Bhhagya Viddhaata (Bharat Bhagya Vidhata) Film Review Out | Bharat Bhhagya Viddhaata Rating Out Of 5 | Is Bharat Bhhagya Viddhaata Worth The Wait? Check Filmibeat Review Here - Filmibeat
+Title found: Vibe Review: Kunal Kemmu's Film Is More Ridiculous Than Funny - Rediff.com movies
 
---- [11/15] indiatoday.in ---
-URL: https://www.indiatoday.in/movies/reviews/story/bharat-bhagya-viddhaata-review-kangana-ranaut-is-flame-in-2611-attack-film-that-could-have-been-a-fire-2925481-2026-06-12
+--- [16/20] tribuneindia.com ---
+URL: https://www.tribuneindia.com/news/movie-review/no-funny-vibe-here/
 Downloaded: Y (Tier 1 (Playwright Stealth))
-Title found: Bharat Bhhagya Viddhaata review: Kangana Ranaut is flame in film that could have been a fire - India Today
+Title found: No funny ‘Vibe’ here - The Tribune
 
---- [12/15] lehren.com ---
-URL: https://lehren.com/bharat-bhhagya-viddhaata-movie-review-caregiving-camaraderie-courage/
-Downloaded: N
-Title found: FAILED
-
---- [13/15] bollywoodhungama.com ---
-URL: https://www.bollywoodhungama.com/movie/bharat-bhhagya-viddhaata/critic-review/bharat-bhhagya-viddhaata-movie-review/bharat-bhhagya-viddhaata-boasts-a-compelling-story-and-sincere-performances-but-is-let-down-by-weak-storytelling/
+--- [17/20] thehindu.com ---
+URL: https://www.thehindu.com/entertainment/movies/vibe-movie-review-kunal-kemmu-aims-for-stars-in-rudderless-overlong-comedy/article71480134.ece
 Downloaded: Y (Tier 1 (Playwright Stealth))
-Title found: Bharat Bhhagya Viddhaata Movie Review: BHARAT BHHAGYA VIDDHAATA boasts a compelling story and sincere performances but is let down by weak storytelling
+Title found: ‘Vibe’ movie review: Kunal Kemmu aims for stars in rudderless, overlong comedy - The Hindu
 
---- [14/15] scroll.in ---
-URL: https://scroll.in/reel/1093416/bharat-bhhagya-viddhaata-review-a-gripping-account-of-uncommon-courage-against-terror
+--- [18/20] mid-day.com ---
+URL: https://www.mid-day.com/amp/entertainment/bollywood-news/article/vibe-movie-review-kunal-kemmu-preity-zinta-sparsh-shrivastava-sharmila-tagore-23650560
 Downloaded: Y (Tier 1 (Playwright Stealth))
-Title found: Bharat Bhhagya Viddhaata review: A gripping account of uncommon courage against terror
+Title found: Vibe movie review: Kunal Kemmu’s entertaining spy thriller is a lesson for Bollywood
 
---- [15/15] varietyindia.com ---
-URL: https://varietyindia.com/bharat-bhhagya-viddhaata-review-not-all-heroes-wear-capes-some-wear-scrubs/
+--- [19/20] scroll.in ---
+URL: https://scroll.in/reel/1095718/review-the-overall-vibe-in-vibe-is-indulgence
 Downloaded: Y (Tier 1 (Playwright Stealth))
-Title found: Bharat Bhhagya Viddhaata Review: A Moving Medical Drama
+Title found: Review: The overall vibe in ‘Vibe’ is indulgence
+
+--- [20/20] wionews.com ---
+URL: https://www.wionews.com/entertainment/bollywood/vibe-movie-review-kunal-kemmu-sparsh-shrivastava-preity-zinta-s-spy-adventure-delivers-plenty-of-laughs-and-unexpected-chaos-1789668280912
+Downloaded: Y (Tier 1 (Playwright Stealth))
+Title found: Vibe movie review: Kunal Kemmu, Sparsh Shrivastava, Preity Zinta's spy adventure delivers plenty of laughs and unexpected chaos
 
 [FINDER] Complete. Saved runtime data to temp_runtime.json
 
-[CLEANER] Processing 15 entries for movie: 'Bharat Bhhagya Viddhaata'
+[CLEANER] Processing 20 entries for movie: 'Vibe'
 
 Domain: indianexpress.com
-Raw: Bharat Bhhagya Viddhaata movie review: Resurgent Kangana Ranaut leads this gripping film | Movie-review News - The Indian Express
-Cleaned: Resurgent Kangana Ranaut leads this gripping film
+Raw: Vibe movie review: Kunal Kemmu’s goofy spy saga has a vibe | Movie-review News - The Indian Express
+Cleaned: Kunal Kemmu’s goofy spy saga has a
 
-Domain: baradwajrangan.wordpress.com
-Raw: Manoj Tapadia’s ‘Bharat Bhhagya Viddhaata’ is a moving, well-crafted tribute to the heroines of 26/11 | Baradwaj Rangan
-Cleaned: Is a moving, well-crafted tribute to the heroines of 26/11
-
-Domain: news.abplive.com
-Raw: Bharat Bhhagya Viddhaata Review | Kangana Ranaut’s Film Is The 26/11 Tribute We Owed Our Nurses
-Cleaned: Kangana Ranaut’s Film Is The 26/11 Tribute We Owed Our Nurses
-
-Domain: news18.com
-Raw: Bharat Bhhagya Viddhaata Review: Kangana Ranaut Leads A Powerful Ode To Nurses Who Saved Lives During 26/11 | Reviews News - News18
-Cleaned: Kangana Ranaut Leads A Powerful Ode To Nurses Who Saved Lives During 26/11
-
-Domain: aajtak.in
-Raw: Bharat Bhhagya Viddhaata Review: कंगना रनौत की दमदार एक्टिंग, 26/11 हमलों में नर्सों की बहादुरी को करेंगे सलाम, दिल जीत लेगी फिल्म  - Kangana Ranaut Bharat Bhhagya Viddhaata Movie Review Hindi tmovg - AajTak
-Cleaned: कंगना रनौत की दमदार एक्टिंग, 26/11 हमलों में नर्सों की बहादुरी को करेंगे सलाम, दिल जीत लेगी फिल्म
+Domain: ndtv.com
+Raw: Vibe Review: This Spy Comedy Belongs More To Kunal Kemmu The Actor Than Director - 2.5 Stars
+Cleaned: This Spy Comedy Belongs More To Kunal Kemmu The Actor Than Director - 2.5 Stars
 
 Domain: timesofindia.indiatimes.com
-Raw: Bharat Bhhagya Viddhaata Movie Review: A tense thriller rooted in humanity and hope
-Cleaned: A tense thriller rooted in humanity and hope
-
-Domain: koimoi.com
-Raw: Bharat Bhhagya Viddhaata Movie Review: Kangana Ranaut Leads A Stirring Tribute To The Unsung Heroes Of 26/11
-Cleaned: Kangana Ranaut Leads A Stirring Tribute To The Unsung Heroes Of 26/11
+Raw: Vibe Movie Review: Kunal Kemmu’s zany spy comedy gets the vibe right
+Cleaned: Kunal Kemmu’s zany spy comedy gets the vibe right
 
 Domain: filmfare.com
-Raw: Bharat Bhhagya Viddhaata Review: A Tribute to Everyday Heroes | Filmfare.com
-Cleaned: A Tribute to Everyday Heroes
+Raw: Vibe Movie Review: A Tale of Accidental Spies | Filmfare.com
+Cleaned: A Tale of Accidental Spies
 
-Domain: hindustantimes.com
-Raw: Bharat Bhhagya Viddhaata review: A nail-biting tribute to courage under fire by Kangana Ranaut and her co-actors | Bollywood
-Cleaned: A nail-biting tribute to courage under fire by Kangana Ranaut and her co-actors
+Domain: koimoi.com
+Raw: Vibe Movie Review: Kunal Kemmu's Spy Universe Is Brilliantly Outrageous Making Him A Bahumulya Gadha - A Loveable Idiot Bollywood Needs Badly!
+Cleaned: Kunal Kemmu's Spy Universe Is Brilliantly Outrageous Making Him A Bahumulya Gadha - A Loveable Idiot Bollywood Needs Badly!
 
-Domain: filmibeat.com
-Raw: Bharat Bhhagya Viddhaata Movie Review And Rating (Non-Spoiler): Kangana Ranaut Shines In Sincere Retelling Of Cama Hospital's Heroism | Bharat Bhhagya Viddhaata (Bharat Bhagya Vidhata) Film Review Out | Bharat Bhhagya Viddhaata Rating Out Of 5 | Is Bharat Bhhagya Viddhaata Worth The Wait? Check Filmibeat Review Here - Filmibeat
-Cleaned: Kangana Ranaut Shines In Sincere Retelling Of Cama Hospital's Heroism
+Domain: news18.com
+Raw: VIBE Review: Kunal Kemmu's ‘Bahumuliya Gadhas’ Is What Bollywood Needs The Most | Bollywood News - News18
+Cleaned: Kunal Kemmu's ‘Bahumuliya Gadhas’ Is What Bollywood Needs The Most
 
 Domain: indiatoday.in
-Raw: Bharat Bhhagya Viddhaata review: Kangana Ranaut is flame in film that could have been a fire - India Today
-Cleaned: Kangana Ranaut is flame in film that could have been a fire
+Raw: Vibe review: Kunal Kemmu’s spy comedy is chaotic, charming and occasionally too much - India Today
+Cleaned: Kunal Kemmu’s spy comedy is chaotic, charming and occasionally too much
 
-Domain: lehren.com
-Raw: FAILED
-Cleaned: FAILED
+Domain: hindustantimes.com
+Raw: VIBE review: Kunal Kemmu-Preity Zinta's comedy film has a terrific first half but loses its vibe later | Bollywood
+Cleaned: Kunal Kemmu-Preity Zinta's comedy film has a terrific first half but loses its vibe later
 
 Domain: bollywoodhungama.com
-Raw: Bharat Bhhagya Viddhaata Movie Review: BHARAT BHHAGYA VIDDHAATA boasts a compelling story and sincere performances but is let down by weak storytelling
-Cleaned: BHARAT BHHAGYA VIDDHAATA boasts a compelling story and sincere performances but is let down by weak storytelling
+Raw: Vibe Movie Review: VIBE works due to Kunal Kemmu’s strong command over humour
+Cleaned: VIBE works due to Kunal Kemmu’s strong command over humour
+
+Domain: thequint.com
+Raw: 'Vibe' Review: Kunal Kemmu’s Comedy Is No 'Madgaon Express' But Still Delivers A Good Time
+Cleaned: Kunal Kemmu’s Comedy Is No 'Madgaon Express' But Still Delivers A Good Time
+
+Domain: timesnownews.com
+Raw: VIBE 2026 Movie Review: Kunal Kemmu, Preity Zinta, Sparsh Shrivastava's Quirky Spy Comedy Is A Fun Watch | Times Now
+Cleaned: 2026 Movie Review: Kunal Kemmu, Preity Zinta, Sparsh Shrivastava's Quirky Spy Comedy Is A Fun Watch
+
+Domain: deccanherald.com
+Raw: Vibe movie review: Goofy comedy with espionage twists, Kunal Kemmu shines
+Cleaned: Goofy comedy with espionage twists, Kunal Kemmu shines
+
+Domain: cinemaexpress.com
+Raw: Vibe Movie Review: Kunal Kemmu the actor is let down by Kunal Kemmu the writer
+Cleaned: Kunal Kemmu the actor is let down by Kunal Kemmu the writer
+
+Domain: freepressjournal.in
+Raw: Vibe Review: Kunal Kemmu, Preity Zinta's Film Starts On A High But Loses Its Spark After Interval
+Cleaned: Kunal Kemmu, Preity Zinta's Film Starts On A High But Loses Its Spark After Interval
+
+Domain: rediff.com
+Raw: Vibe Review: Kunal Kemmu's Film Is More Ridiculous Than Funny - Rediff.com movies
+Cleaned: Kunal Kemmu's Film Is More Ridiculous Than Funny
+
+Domain: tribuneindia.com
+Raw: No funny ‘Vibe’ here - The Tribune
+Cleaned: Here
+
+Domain: thehindu.com
+Raw: ‘Vibe’ movie review: Kunal Kemmu aims for stars in rudderless, overlong comedy - The Hindu
+Cleaned: Kunal Kemmu aims for stars in rudderless, overlong comedy
+
+Domain: mid-day.com
+Raw: Vibe movie review: Kunal Kemmu’s entertaining spy thriller is a lesson for Bollywood
+Cleaned: Kunal Kemmu’s entertaining spy thriller is a lesson for Bollywood
 
 Domain: scroll.in
-Raw: Bharat Bhhagya Viddhaata review: A gripping account of uncommon courage against terror
-Cleaned: A gripping account of uncommon courage against terror
+Raw: Review: The overall vibe in ‘Vibe’ is indulgence
+Cleaned: Is indulgence
 
-Domain: varietyindia.com
-Raw: Bharat Bhhagya Viddhaata Review: A Moving Medical Drama
-Cleaned: A Moving Medical Drama
+Domain: wionews.com
+Raw: Vibe movie review: Kunal Kemmu, Sparsh Shrivastava, Preity Zinta's spy adventure delivers plenty of laughs and unexpected chaos
+Cleaned: Kunal Kemmu, Sparsh Shrivastava, Preity Zinta's spy adventure delivers plenty of laughs and unexpected chaos
 
 ============================================================
 RUN STATISTICS
 ============================================================
 Domain: indianexpress.com | Downloaded: Y | Cleaned: Y
-Domain: baradwajrangan.wordpress.com | Downloaded: Y | Cleaned: Y
-Domain: news.abplive.com | Downloaded: Y | Cleaned: Y
-Domain: news18.com | Downloaded: Y | Cleaned: Y
-Domain: aajtak.in | Downloaded: Y | Cleaned: Y
+Domain: ndtv.com | Downloaded: Y | Cleaned: Y
 Domain: timesofindia.indiatimes.com | Downloaded: Y | Cleaned: Y
-Domain: koimoi.com | Downloaded: Y | Cleaned: Y
 Domain: filmfare.com | Downloaded: Y | Cleaned: Y
-Domain: hindustantimes.com | Downloaded: Y | Cleaned: Y
-Domain: filmibeat.com | Downloaded: Y | Cleaned: Y
+Domain: koimoi.com | Downloaded: Y | Cleaned: Y
+Domain: news18.com | Downloaded: Y | Cleaned: Y
 Domain: indiatoday.in | Downloaded: Y | Cleaned: Y
-Domain: lehren.com | Downloaded: N | Cleaned: N
+Domain: hindustantimes.com | Downloaded: Y | Cleaned: Y
 Domain: bollywoodhungama.com | Downloaded: Y | Cleaned: Y
+Domain: thequint.com | Downloaded: Y | Cleaned: Y
+Domain: timesnownews.com | Downloaded: Y | Cleaned: Y
+Domain: deccanherald.com | Downloaded: Y | Cleaned: Y
+Domain: cinemaexpress.com | Downloaded: Y | Cleaned: Y
+Domain: freepressjournal.in | Downloaded: Y | Cleaned: Y
+Domain: rediff.com | Downloaded: Y | Cleaned: Y
+Domain: tribuneindia.com | Downloaded: Y | Cleaned: Y
+Domain: thehindu.com | Downloaded: Y | Cleaned: Y
+Domain: mid-day.com | Downloaded: Y | Cleaned: Y
 Domain: scroll.in | Downloaded: Y | Cleaned: Y
-Domain: varietyindia.com | Downloaded: Y | Cleaned: Y
+Domain: wionews.com | Downloaded: Y | Cleaned: Y
 ------------------------------------------------------------
-Total URLs Processed    : 15
-Successfully Downloaded : 14
-Successfully Cleaned    : 14
+Total URLs Processed    : 20
+Successfully Downloaded : 20
+Successfully Cleaned    : 20
 ============================================================
 
 [CLEANER] Complete. Finalized results saved to output.json

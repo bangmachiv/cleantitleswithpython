@@ -1,5 +1,151 @@
 [
     {
+        "timestamp": "2026-09-21T06:20:21.707557+00:00",
+        "movie_name": "Vibe",
+        "results": [
+            {
+                "domain": "indianexpress.com",
+                "cleaned_title": "Kunal Kemmu’s goofy spy saga has a",
+                "raw_title": "Vibe movie review: Kunal Kemmu’s goofy spy saga has a vibe | Movie-review News - The Indian Express",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "ndtv.com",
+                "cleaned_title": "This Spy Comedy Belongs More To Kunal Kemmu The Actor Than Director - 2.5 Stars",
+                "raw_title": "Vibe Review: This Spy Comedy Belongs More To Kunal Kemmu The Actor Than Director - 2.5 Stars",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "timesofindia.indiatimes.com",
+                "cleaned_title": "Kunal Kemmu’s zany spy comedy gets the vibe right",
+                "raw_title": "Vibe Movie Review: Kunal Kemmu’s zany spy comedy gets the vibe right",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "filmfare.com",
+                "cleaned_title": "A Tale of Accidental Spies",
+                "raw_title": "Vibe Movie Review: A Tale of Accidental Spies | Filmfare.com",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "koimoi.com",
+                "cleaned_title": "Kunal Kemmu's Spy Universe Is Brilliantly Outrageous Making Him A Bahumulya Gadha - A Loveable Idiot Bollywood Needs Badly!",
+                "raw_title": "Vibe Movie Review: Kunal Kemmu's Spy Universe Is Brilliantly Outrageous Making Him A Bahumulya Gadha - A Loveable Idiot Bollywood Needs Badly!",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "news18.com",
+                "cleaned_title": "Kunal Kemmu's ‘Bahumuliya Gadhas’ Is What Bollywood Needs The Most",
+                "raw_title": "VIBE Review: Kunal Kemmu's ‘Bahumuliya Gadhas’ Is What Bollywood Needs The Most | Bollywood News - News18",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "indiatoday.in",
+                "cleaned_title": "Kunal Kemmu’s spy comedy is chaotic, charming and occasionally too much",
+                "raw_title": "Vibe review: Kunal Kemmu’s spy comedy is chaotic, charming and occasionally too much - India Today",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "hindustantimes.com",
+                "cleaned_title": "Kunal Kemmu-Preity Zinta's comedy film has a terrific first half but loses its vibe later",
+                "raw_title": "VIBE review: Kunal Kemmu-Preity Zinta's comedy film has a terrific first half but loses its vibe later | Bollywood",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "bollywoodhungama.com",
+                "cleaned_title": "VIBE works due to Kunal Kemmu’s strong command over humour",
+                "raw_title": "Vibe Movie Review: VIBE works due to Kunal Kemmu’s strong command over humour",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "thequint.com",
+                "cleaned_title": "Kunal Kemmu’s Comedy Is No 'Madgaon Express' But Still Delivers A Good Time",
+                "raw_title": "'Vibe' Review: Kunal Kemmu’s Comedy Is No 'Madgaon Express' But Still Delivers A Good Time",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "timesnownews.com",
+                "cleaned_title": "2026 Movie Review: Kunal Kemmu, Preity Zinta, Sparsh Shrivastava's Quirky Spy Comedy Is A Fun Watch",
+                "raw_title": "VIBE 2026 Movie Review: Kunal Kemmu, Preity Zinta, Sparsh Shrivastava's Quirky Spy Comedy Is A Fun Watch | Times Now",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "deccanherald.com",
+                "cleaned_title": "Goofy comedy with espionage twists, Kunal Kemmu shines",
+                "raw_title": "Vibe movie review: Goofy comedy with espionage twists, Kunal Kemmu shines",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "cinemaexpress.com",
+                "cleaned_title": "Kunal Kemmu the actor is let down by Kunal Kemmu the writer",
+                "raw_title": "Vibe Movie Review: Kunal Kemmu the actor is let down by Kunal Kemmu the writer",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "freepressjournal.in",
+                "cleaned_title": "Kunal Kemmu, Preity Zinta's Film Starts On A High But Loses Its Spark After Interval",
+                "raw_title": "Vibe Review: Kunal Kemmu, Preity Zinta's Film Starts On A High But Loses Its Spark After Interval",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "rediff.com",
+                "cleaned_title": "Kunal Kemmu's Film Is More Ridiculous Than Funny",
+                "raw_title": "Vibe Review: Kunal Kemmu's Film Is More Ridiculous Than Funny - Rediff.com movies",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "tribuneindia.com",
+                "cleaned_title": "Here",
+                "raw_title": "No funny ‘Vibe’ here - The Tribune",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "thehindu.com",
+                "cleaned_title": "Kunal Kemmu aims for stars in rudderless, overlong comedy",
+                "raw_title": "‘Vibe’ movie review: Kunal Kemmu aims for stars in rudderless, overlong comedy - The Hindu",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "mid-day.com",
+                "cleaned_title": "Kunal Kemmu’s entertaining spy thriller is a lesson for Bollywood",
+                "raw_title": "Vibe movie review: Kunal Kemmu’s entertaining spy thriller is a lesson for Bollywood",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "scroll.in",
+                "cleaned_title": "Is indulgence",
+                "raw_title": "Review: The overall vibe in ‘Vibe’ is indulgence",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "wionews.com",
+                "cleaned_title": "Kunal Kemmu, Sparsh Shrivastava, Preity Zinta's spy adventure delivers plenty of laughs and unexpected chaos",
+                "raw_title": "Vibe movie review: Kunal Kemmu, Sparsh Shrivastava, Preity Zinta's spy adventure delivers plenty of laughs and unexpected chaos",
+                "is_downloaded": true,
+                "is_cleaned": true
+            }
+        ]
+    },
+    {
         "timestamp": "2026-09-12T14:15:55.056302+00:00",
         "movie_name": "Bharat Bhhagya Viddhaata",
         "results": [
