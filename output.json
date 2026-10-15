@@ -1,5 +1,144 @@
 [
     {
+        "timestamp": "2026-10-15T11:24:21.583645+00:00",
+        "movie_name": "Drishyam: The Conclusion",
+        "results": [
+            {
+                "domain": "indianexpress.com",
+                "cleaned_title": "It deserved",
+                "raw_title": "Drishyam 3 Movie Review & Rating: Terrific Ajay Devgn-Tabu give Drishyam the conclusion it deserved",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "ndtv.com",
+                "cleaned_title": "",
+                "raw_title": "Drishyam 3 Review: Come For Ajay Devgn, Stay For Jaideep Ahlawat - 3 Stars",
+                "is_downloaded": true,
+                "is_cleaned": false
+            },
+            {
+                "domain": "koimoi.com",
+                "cleaned_title": "",
+                "raw_title": "Drishyam 3 Movie Review: Ajay Devgn's Calm & Jaideep Ahlawat's Fire Conclude The Franchise At Its Highest & Vijay Salgaonkar Is A GOAT Storyteller - What A Finale!",
+                "is_downloaded": true,
+                "is_cleaned": false
+            },
+            {
+                "domain": "bollywoodhungama.com",
+                "cleaned_title": "Drishyam The Conclusion is a SURE SHOT BLOCKBUSTER.",
+                "raw_title": "Drishyam The Conclusion Movie Review: Drishyam The Conclusion is a SURE SHOT BLOCKBUSTER.",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "filmibeat.com",
+                "cleaned_title": "",
+                "raw_title": "Drishyam 3 (The Conclusion) Review Rating (Non-Spoiler): Twists Keep You Guessing, Ajay Devgn & Jaideep Ahlawat Bring The Swag To The Screen | Drishyam 3 The Conclusion Film Review Out | Ajay Devgn, Jaideep Ahlawat, Tabu, Shriya Sran Film Drishyam 3 Rating Out Of 5 | Is Drishyam 3 Worth The Wait? Check Filmibeat Review Here | Who Is The Star Performer In Drishyam 3? - Filmibeat",
+                "is_downloaded": true,
+                "is_cleaned": false
+            },
+            {
+                "domain": "india.com",
+                "cleaned_title": "Ajay Devgn, Jaideep Ahlawat, Tabu's crime thriller brings gripping finale and ultimate twist of fate",
+                "raw_title": "Drishyam The Conclusion review: Ajay Devgn, Jaideep Ahlawat, Tabu's crime thriller brings gripping finale and ultimate twist of fate",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "mensxp.com",
+                "cleaned_title": "Ajay Devgn, Tabu's Mystery Trilogy Finds Its Perfect Ending with Jaideep Ahlawat",
+                "raw_title": "Drishyam: The Conclusion Review: Ajay Devgn, Tabu's Mystery Trilogy Finds Its Perfect Ending with Jaideep Ahlawat",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "pinkvilla.com",
+                "cleaned_title": "Ajay Devgn as Vijay Salgaonkar owns the screen in a gripping finale; Last 30 mins deliver mindblowing climax",
+                "raw_title": "Drishyam The Conclusion Review: Ajay Devgn as Vijay Salgaonkar owns the screen in a gripping finale; Last 30 mins deliver mindblowing climax | PINKVILLA: Entertainment",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "timesnownews.com",
+                "cleaned_title": "",
+                "raw_title": "Drishyam 3 Movie Review: Ajay Devgn's Vijay Salgaonkar Saves His Biggest Trick For The Ultimate Test | Times Now",
+                "is_downloaded": true,
+                "is_cleaned": false
+            },
+            {
+                "domain": "movietalkies.com",
+                "cleaned_title": "4Th-fail Vijay Salgaonkar deceives intelligence officers in his Chakravyuh once again",
+                "raw_title": "Drishyam The Conclusion Review: 4th-fail Vijay Salgaonkar deceives intelligence officers in his Chakravyuh once again –",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "indiaforums.com",
+                "cleaned_title": "Ajay Devgn and Jaideep Ahlawat Serve Suspense, Surprises & a ...",
+                "raw_title": "Drishyam: The Conclusion Review: Ajay Devgn and Jaideep Ahlawat Serve Suspense, Surprises & a ...",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "timesofindia.indiatimes.com",
+                "cleaned_title": "Crowd-pleasing thrills, mounting tension, but a tiring finish",
+                "raw_title": "Drishyam: The Conclusion Movie Review: Crowd-pleasing thrills, mounting tension, but a tiring finish",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "moneycontrol.com",
+                "cleaned_title": "Ajay Devgn's calculating calm and Jaideep Ahlawat's authority keep the tension real, though the answers don't always convince- Moneycontrol.com",
+                "raw_title": "Drishyam The Conclusion movie review: Ajay Devgn's calculating calm and Jaideep Ahlawat's authority keep the tension real, though the answers don't always convince- Moneycontrol.com",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "123telugu.com",
+                "cleaned_title": "And Rating",
+                "raw_title": "Ajay Devgn's Drishyam: The Conclusion Hindi Movie Review And Rating",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "filmfare.com",
+                "cleaned_title": "Be prepared for new twists",
+                "raw_title": "Drishyam: The Conclusion Review: Be prepared for new twists | Filmfare.com",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "hindustantimes.com",
+                "cleaned_title": "Ajay Devgn's Vijay Salgaonkar has a last trick that is as dramatic as ever, but hardly spellbinding",
+                "raw_title": "Drishyam The Conclusion review: Ajay Devgn's Vijay Salgaonkar has a last trick that is as dramatic as ever, but hardly spellbinding | Bollywood",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "news18.com",
+                "cleaned_title": "",
+                "raw_title": "Drishyam 3 Review: Ajay Devgn's Film Isn't Bad But Fails To Offer A Grand Conclusion | Bollywood News - News18",
+                "is_downloaded": true,
+                "is_cleaned": false
+            },
+            {
+                "domain": "m.rediff.com",
+                "cleaned_title": "Goes All Guns Blazing",
+                "raw_title": "Review: Drishyam: The Conclusion Goes All Guns Blazing - Rediff.com movies",
+                "is_downloaded": true,
+                "is_cleaned": true
+            },
+            {
+                "domain": "mid-day.com",
+                "cleaned_title": "",
+                "raw_title": "Drishyam 3 movie review: Ajay Devgn serves a jaw-dropping conclusion",
+                "is_downloaded": true,
+                "is_cleaned": false
+            }
+        ]
+    },
+    {
         "timestamp": "2026-09-21T06:20:21.707557+00:00",
         "movie_name": "Vibe",
         "results": [
